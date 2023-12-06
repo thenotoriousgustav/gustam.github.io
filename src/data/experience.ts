@@ -17,8 +17,8 @@ const EXPERIENCE = [
       end: "09.2021",
     },
     description:
-      "Designing & building new features for an open-source course management system that allows professors to autograde student programming assignments— in any language, using any software package, instantly.",
-    position: "Software Developer (Prev, Team Lead)",
+      "Build and Develop a website, a company that provides services in the field of UI/UX, Web Development and App Development.",
+    position: "Full-Stack Developer",
     link: "https://autolabproject.com/",
   },
   {

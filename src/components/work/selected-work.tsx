@@ -39,15 +39,15 @@ export default function SelectedWork() {
           href={work.link}
           target="_blank"
           rel="noreferrer"
-          className="project-images"
+          className="flex justify-between gap-x-4"
         >
           {work.images.map((img, index) => (
             <Image
               width={0}
               height={0}
               sizes="100vw"
-              src={`/images/${img}`}
-              className="h-80 w-full"
+              src={`/work/${img}`}
+              className="max-h-[800px] w-full bg-cover"
               alt={`${work.name} number ${index}`}
               key={`${work.name} number ${index}`}
             />
