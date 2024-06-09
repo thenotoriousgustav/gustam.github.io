@@ -5,14 +5,13 @@ const EXPERIENCE = [
       start: "02.2024",
       end: "06.2024",
     },
-    description: `During my internship at the Ministry of Finance, I significantly contributed to modernizing their web infrastructure. 
+    description: `<p>During my internship at the Ministry of Finance, I significantly contributed to modernizing their web infrastructure. 
     I upgraded the Next.js framework from version 9 to 14, incorporating the latest features and performance improvements. 
-    I also enhanced code readability and maintainability by converting class components into functional components.
-    Additionally, I developed KEMENKEU CAT, an AI-based exam website designed to ensure exam integrity through advanced technologies such as face recognition,
+    I also enhanced code readability and maintainability by converting class components into functional components.</p>
+
+    <p class="mt-2">Additionally, I developed KEMENKEU CAT, an AI-based exam website designed to ensure exam integrity through advanced technologies such as face recognition,
     voice activity detection, OCR, and object detection. This project demonstrated my ability to integrate
-    various AI and machine learning technologies into a cohesive and robust system for secure online examinations.
-    
-    `,
+    various AI and machine learning technologies into a cohesive and robust system for secure online examinations.</p>`,
     position: "Full-Stack Developer",
     link: "https://indonesia.properti.com/",
   },

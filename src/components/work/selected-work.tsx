@@ -47,7 +47,7 @@ export default function SelectedWork() {
               height={0}
               sizes="100vw"
               src={`/work/${img}`}
-              className="max-h-[800px] w-full bg-cover"
+              className="max-h-[800px] w-full object-cover"
               alt={`${work.name} number ${index}`}
               key={`${work.name} number ${index}`}
             />
@@ -62,7 +62,7 @@ export default function SelectedWork() {
 
         <div
           dangerouslySetInnerHTML={{ __html: work.description }}
-          className="mt-4 tracking-tight"
+          className="mt-4 space-y-4 tracking-tight"
         ></div>
       </div>
     </ScrollArea>

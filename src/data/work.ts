@@ -3,75 +3,77 @@ const WORK = [
     name: "F1 Schedule App  ",
     images: ["f1.png", "f1-2.png"],
     description:
-      '<p>Receiptify is a web application that generates a receipt of your most-played songs, artists, and genres from the past month, 6 months, or all time.</p><br /><p>Examining the media we consume— in this case, music— can offer a glimpse into our lives in a given period. In many ways, receipts can also serve as a powerful tool to capture moments and stories throughout the passage of time. I wanted to combine these two things in a shareable format, so that individuals can "collect" these glimpses and share them with friends and family.</p><br /><p>Today, Receiptify has garnered lots of love and support from across the world, with an average of 2.6 million users and 9 million page views per month. Receiptify is a recipient of the CMU STUDIO for Creative Inquiry\'s Frank-Ratchye Fund for Art @ the Frontier microgrant and has been mentioned in several publications, including <a target="_blank" href="https://heavy.com/news/2020/09/receiptify-spotify/">heavy.com</a>, <a href="https://www.bandwagon.asia/articles/receiptify-turns-your-top-tracks-on-spotify-into-shopping-receipts-michelle-liu">Bandwagon Asia</a>, <a target="_blank" href="https://www.popsugar.com/tech/what-is-receiptify-48268056">Popsugar</a>, and <a href="https://www.usatoday.com/story/tech/2022/06/07/spotify-pie-chart-top-genres-artists/10003057002/" target="_blank">USA Today</a>.</p>',
+      "<p>Our user-friendly interface and comprehensive features make following the F1 season an exciting and immersive experience. Whether you're a seasoned fan or new to the sport, our app caters to all levels of enthusiasm for the adrenaline-fueled world of Formula 1 racing.</p>",
     summary:
-      "A web application that generates a receipt of your most-played songs, artists, and genres from the past month, 6 months, or all time.",
+      "A Formula 1 schedule app that provides a user-friendly interface and comprehensive features.",
     date: "10.2020",
-    link: "https://receiptify.herokuapp.com/",
+    link: "",
   },
   {
     name: "Weather Forecast",
     images: ["weather.png", "weather-2.png"],
-    description:
-      "<p>For this project, we were tasked to create an assistive device for a client with a disability. Our class focuses on small electronics and interaction, so we had to find a way to use those skills to create a device that would helpful for our client, Darnisha. Over the course of six weeks, we met with Darnisha, designed prototypes, tested prototypes, and finally created the final product.</p><br /><p>In our interviews, we found that Darnisha sometimes forgets where she puts her phone down throughout the day, and also has trouble reaching over to turn off the alarm in the morning. Our solution was a wheelchair attachment that lights up when the phone is not in the holder to remind Darnisha to keep her phone with her. The device also doubles as an alarm clock that turns off via motion sensing, so that Darnisha doesn't need to press any buttons or get up to grab anything.</p>",
+    description: `<p>Our app is designed to be user-friendly, providing al the essential weather information you need in a visually appealing and easy-to-navigate interface. With reliable forecasts and innovative features, never let the weather catch you of guard again. Download our app today and make informed decisions based on the latest weather predictions.</p>`,
     summary:
-      "A wheelchair attachment that doubles as an alarm and phone reminder.",
+      "A weather forecast app that provides reliable forecasts and innovative features.",
     date: "05.2023",
-    link: "https://courses.ideate.cmu.edu/60-223/s2023/work/phone-holder-and-alarm-by-team-peaches-final-documentation/",
+    link: "",
   },
   {
     name: "East Side Canary",
     images: ["eastside.png"],
-    description:
-      "<p>A set of 13 AR filters, designed and developed to show off each of the 13 fashion lines for Lunar Gala's 2023 Morii show. When a filter is activated, users can point their camera at the corresponding page for a line to view a 3D model of the line.</p>",
-    summary: "AR filter experience, designed for the Lunar Gala Morii booklet.",
+    description: `<p>eastside canary is a real estate web</p>`,
+    summary: "A real estate web",
     date: "03.2023",
-    link: "https://www.instagram.com/lunargala/",
+    link: "https://eastside-canary.netlify.app/",
   },
   {
     name: "Landmarks",
     images: ["landmarks.png", "landmarks-2.png"],
-    description:
-      "<p>Morii— the desire to catch a fleeting experience.<br /><br />This website was developed to promote the 2023 Lunar Gala fashion show, Morii. I worked on the landing page, about page, the individual lines pages, the mobile version of the lines page, and the tickets page.</p>",
-    summary: "Lunar Gala 2023 event website.",
-    date: "03.2023",
-    link: "https://2023.lunargala.org/",
-  },
-  {
-    name: "Giatinaja",
-    images: ["diffraction.jpg", "diffraction_about.jpg"],
-    description:
-      "<p>Diffraction is the process by which a source of light, sound, or other system of waves is spread as a result of passing through a narrow aperture or across an edge, typically accompanied by interference between the waveforms produced. TEDxCMU Diffraction represents people who are willing to use their voice to influence, persuade, and change others' worldview and perspective exponentially.<br /><br />Website developed to promote the 2023 TEDxCMU main event, created in collaboration with the TEDxCMU design and innovation teams.</p>",
-    summary: "TEDxCMU 2023 event website.",
-    date: "03.2023",
-    link: "https://diffraction.tedxcmu.org/",
-  },
-  {
-    name: "Stopwatch",
-    images: ["phone_jail.jpeg", "phone_jail2.jpeg"],
-    description:
-      "<p>An assistive device that prevents you from going on your phone in the morning by creating a loud buzzing noise when your phone is removed from its surface in the hour after your alarm goes off.<br /><br />Learned a lot about fabrication with this one!</p>",
-    summary: "Electronics project to prevent morning phone distractions.",
-    date: "03.2023",
-    link: "https://courses.ideate.cmu.edu/60-223/s2023/work/good-morning-phone-jail/",
-  },
-  {
-    name: "Countries App",
-    images: ["sounds1.jpg", "sounds2.jpg"],
-    description:
-      "<p>Music can strike up many memories— good ones, bad ones, the ones in between.</p><br /><p>Sounds Around Us is a project in-development that allows users to select songs that mean something to them or evoke a memory, then submit an anonymous blurb about that song. Other users can explore these stories by clicking through them, with the associated song playing in the background.</p>",
-    summary: "An exploration of music and the stories they hold.",
-    date: "unreleased",
-  },
-  {
-    name: "IMS App",
-    images: ["iknowaplace.jpg", "iknowaplace2.jpg"],
-    description:
-      "<p>We all know a place and know it very well.</p><br /><p>Created in collaboration with some of my talented teammates at TEDxCMU Innovation & Salon, I Know A Place is an interactive map that celebrates Carnegie Mellon's cultural diversity through an exploration of memory and space. Users can click on any place on the map to add their own story or click on previous points to view existing stories.</p>",
+    description: `<p>To enhance the user experience in my SwiftUI projects, I have developed intuitive ways for users to explore a comprehensive list of landmarks and view detailed information about each location.</p>
+    <p>I designed views that dynamically display information for any given landmark, creating a seamless, scrolling list that users can tap to access detailed views. By leveraging SwiftUI's powerful features, I ensured the interface is both responsive and visually appealing across various device sizes.</p>
+    <p>Using Xcode, I meticulously rendered previews to fine-tune the UI, guaranteeing a polished look and feel on different devices. This attention to detail ensures that my applications provide a consistent and engaging user experience, making navigation and information retrieval both simple and enjoyable.</p>
+    `,
     summary:
-      "An interactive map that celebrates Carnegie Mellon's cultural diversity through an exploration of memory and space.",
+      "A SwiftUI project that enhances the user experience by providing intuitive ways to explore a comprehensive list of landmarks and view detailed information about each location.",
+    date: "03.2023",
+    link: "",
+  },
+  {
+    name: "News App",
+    images: ["news-app.png", "news-app-2.png"],
+    description: `<p>I developed a sleek and user-friendly News App using SwiftUI and the News API, aimed at delivering the latest news articles and offering a streamlined, personalized reading experience. This app is designed to cater to users who seek quick access to current events while enjoying an intuitive and engaging interface.</p>
+    <p>By integrating the powerful News API, the app fetches and displays the latest news articles from various reliable sources. This ensures that users receive up-to-date information across a wide range of topics, from world news and politics to technology and entertainment.</p>
+    <h1 class="font-semibold">Key Features:</h1>
+    <p>Bookmarking: This feature allows users to bookmark their favorite articles, making it easy to access and read them later. This enhances the user experience by providing a convenient way to save important or interesting content for future reference.</p>
+    <p>Real-Time Updates: The app provides real-time news updates, ensuring users are always informed about the latest developments as they happen. This is particularly useful for staying on top of breaking news and trending stories.</p>
+    `,
+    summary:
+      "A News App that delivers the latest news articles and offers a streamlined, personalized reading experience.",
+    date: "03.2023",
+    link: "",
+  },
+  {
+    name: "Spotify Stats",
+    images: ["spotify-stats.png"],
+    description:
+      "<p>I developed a web application called Spotify Stats that provides users with detailed insights into their listening habits, including their most played tracks and favorite artists. This project leverages modern web technologies to deliver a smooth and engaging user experience.</p>",
+    summary:
+      "A web application that provides users with detailed insights into their listening habits, including their most played tracks and favorite artists.",
+    date: "03.2023",
+    link: "https://spotify-stats-psi.vercel.app/",
+  },
+
+  {
+    name: "Inventory Management Systems App",
+    images: ["iknowaplace.jpg", "iknowaplace2.jpg"],
+    description: `
+    <p>Our Inventory Management System App is a versatile solution designed to meet the needs of businesses of all sizes across various industries. Whether you operate a retail store, warehouse, or distribution center, our software streamlines inventory processes, optimizes stock control, and enhances operational efficiency.</p>
+    <p>Our app simplifies inventory management, allowing businesses to track stock levels, orders, sales, and deliveries with ease. Automated workflows reduce manual entry errors, saving time and ensuring accuracy. Built using VB.NET, the app offers a robust and stable platform for handling complex inventory tasks.</p>
+    `,
+    summary:
+      "An Inventory Management System App that streamlines inventory processes, optimizes stock control, and enhances operational efficiency.",
     date: "10.2022",
-    link: "https://iknowaplace.tedxcmu.org/#/",
+    link: "https://github.com/thenotoriousgustav/inventoy_management_system",
   },
 ];
 export default WORK;

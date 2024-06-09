@@ -45,7 +45,7 @@ export default function Experience() {
               </p>
             </div>
             <p className="tracking-tight text-gray-400">{item.position}</p>
-            <p className="tracking-tight">{item.description}</p>
+            <div dangerouslySetInnerHTML={{ __html: item.description }}></div>
           </div>
         ))}
       </div>
