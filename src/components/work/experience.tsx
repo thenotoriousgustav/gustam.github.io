@@ -19,11 +19,7 @@ export default function Experience() {
       </h1>
 
       <p className="leading-tight">
-        Currently studying{" "}
-        <span className="italic">
-          {" "}
-          Information Systems / Computer Science / Human-Computer Interaction{" "}
-        </span>{" "}
+        Currently studying <span className="italic"> Information Systems </span>{" "}
         at Gunadarma University.
       </p>
 

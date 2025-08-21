@@ -1,27 +1,24 @@
+/* eslint-disable @next/next/no-img-element */
 import Container from "@/components/container";
 import SocialMediaBtn from "@/components/work/social-media-btn";
-import Image from "next/image";
+
 import React from "react";
 
 export default function AboutPage() {
   return (
     <Container as="section" className="gap-x-6 pt-5 lg:flex lg:justify-between">
       <div className="w-full lg:w-5/12">
-        <Image
+        <img
           src="/me.jpeg"
-          width="0"
-          height="0"
-          sizes="100vw"
           alt="gustam"
-          className="h-[580px] w-full object-cover"
+          className="h-[650px] w-full object-cover"
         />
       </div>
       <div className="w-full lg:w-7/12 ">
         <h1 className="mb-4 text-2xl font-bold">Hi, I&apos;am Gustam </h1>
         <p className="mb-4 tracking-tight">
-          I&apos;m currently studying Information Systems, Computer Science, and
-          Human-Computer Interaction at Carnegie Mellon University. I&apos;m
-          originally from Maryland and am currently based in Pittsburgh.
+          I&apos;m currently studying Information Systems at Gunadarma
+          University University. I&apos;m originally from Jakarta
         </p>
         <p className="mb-4 tracking-tight">
           I enjoy working on creative web tools and creating engaging
@@ -72,9 +69,7 @@ export default function AboutPage() {
             Bojack Horseman, The Last of Us
           </li>
           <li>
-            <b>Places</b>: Copenhagen, the golf course next to my house (I
-            don&apos;t actually golf, just trespass), Amsterdam, Target in the
-            suburbs, Gantry Plaza State Park, Flagstaff hill
+            <b>Places</b>: Berlin, Amsterdam,
           </li>
         </ul>
         <SocialMediaBtn />

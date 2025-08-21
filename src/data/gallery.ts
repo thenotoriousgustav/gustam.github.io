@@ -1,12 +1,12 @@
 const GALLERY = [
-  {
-    alt: "halloween-dala.jpg",
-    img: "halloween-dala.jpg",
-  },
-  {
-    alt: "halloween-date.jpg",
-    img: "halloween-date.jpg",
-  },
+  // {
+  //   alt: "halloween-dala.jpg",
+  //   img: "halloween-dala.jpg",
+  // },
+  // {
+  //   alt: "halloween-date.jpg",
+  //   img: "halloween-date.jpg",
+  // },
   {
     alt: "kaki halloween",
     img: "kaki-halloween.jpeg",
