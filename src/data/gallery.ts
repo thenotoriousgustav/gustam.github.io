@@ -1,23 +1,15 @@
 const GALLERY = [
   {
-    alt: "halloween-dala.jpg",
-    img: "halloween-dala.jpg",
-  },
-  {
-    alt: "halloween-date.jpg",
-    img: "halloween-date.jpg",
-  },
-  {
     alt: "kaki halloween",
     img: "kaki-halloween.jpeg",
   },
   {
-    alt: "basket-gundar.jpg",
-    img: "basket-gundar.jpg",
+    alt: "theresia.mov",
+    img: "theresia.mov",
   },
   {
-    alt: "gweh-dan-dala.jpg",
-    img: "gweh-dan-dala.jpg",
+    alt: "basket-gundar.jpg",
+    img: "basket-gundar.jpg",
   },
   {
     alt: "ferrari-anet.jpg",
@@ -27,6 +19,7 @@ const GALLERY = [
     alt: "gweh.jpg",
     img: "gweh.jpg",
   },
+  
   {
     alt: "model-boongan.jpg",
     img: "model-boongan.jpg",
@@ -36,12 +29,33 @@ const GALLERY = [
     img: "anak-emo.jpg",
   },
   {
+    alt: "kiss-tere.png",
+    img: "kiss-tere.png",
+  },
+  {
+    alt: "tere-1.mov",
+    img: "tere-1.mov",
+  },
+  {
+    alt: "tere-2.mov",
+    img: "tere-2.mov",
+  },
+  
+  {
+    alt: "ps-loise.jpeg",
+    img: "ps-loise.jpeg",
+  },
+  {
     alt: "sapiq-gweh-nabil.jpg",
     img: "sapiq-gweh-nabil.jpg",
   },
   {
     alt: "ashta cuy",
     img: "ashta-cuy.jpg",
+  },
+  {
+    alt: "tere-3.mov",
+    img: "tere-3.mov",
   },
   {
     alt: "ashta y2ngab",
@@ -59,10 +73,7 @@ const GALLERY = [
     alt: "lift ashta lagi",
     img: "lift-ashta-lagi.jpg",
   },
-  {
-    alt: "gue-dan-baim.jpg",
-    img: "gue-dan-baim.jpg",
-  },
+
   {
     alt: "gue-dan-kibo.jpg",
     img: "gue-dan-kibo.jpg",
@@ -79,9 +90,6 @@ const GALLERY = [
     alt: "pasar-baroe.jpg",
     img: "pasar-baroe.jpg",
   },
-  {
-    alt: "mekdi-date.jpeg",
-    img: "mekdi-date.jpeg",
-  },
+    
 ];
 export default GALLERY;

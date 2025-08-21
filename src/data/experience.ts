@@ -1,9 +1,24 @@
 const EXPERIENCE = [
   {
-    name: "Kementerian Keuangan Republik Indonesia",
+    name: "PT. Erajaya Swasembada Tbk",
     dates: {
       start: "02.2024",
       end: "06.2024",
+    },
+    description: `<p>As a Front-End Developer (MSIB Batch 7) at Erajaya (Eraspace) from Aug–Dec 2024,
+     I built and maintained reusable UI components for the iBox and Eraspace e-commerce platforms and internal tools using Next.js and React, 
+     collaborating closely with UI/UX, QA, and backend teams in Agile sprints to ship features on schedule. I also led the development of a no-code CMS Content Generator 
+     that enabled non-technical teams to create dynamic pages and email newsletters without engineering support, significantly accelerating
+    content production; this project was recognized as the Top 1 Project Finalist among 100+ interns.</p>
+      `,
+    position: "Front End Developer",
+    link: "https://ibox.co.id/",
+  },
+  {
+    name: "Kementerian Keuangan Republik Indonesia",
+    dates: {
+      start: "06.2024",
+      end: "012.2024",
     },
     description: `<p>During my internship at the Ministry of Finance, I significantly contributed to modernizing their web infrastructure. 
     I upgraded the Next.js framework from version 9 to 14, incorporating the latest features and performance improvements. 
@@ -12,8 +27,8 @@ const EXPERIENCE = [
     <p class="mt-2">Additionally, I developed KEMENKEU CAT, an AI-based exam website designed to ensure exam integrity through advanced technologies such as face recognition,
     voice activity detection, OCR, and object detection. This project demonstrated my ability to integrate
     various AI and machine learning technologies into a cohesive and robust system for secure online examinations.</p>`,
-    position: "Full-Stack Developer",
-    link: "https://indonesia.properti.com/",
+    position: "Front End Javascript Developer",
+    link: "https://evaluation-cat.vercel.app/",
   },
   {
     name: "INDONESIA PROPERTI",
@@ -39,7 +54,7 @@ const EXPERIENCE = [
     through our digital studio website. With diverse expertise and boundless passion,
     we've built GSTM Studio into a hub for creative collaboration and groundbreaking digital solutions.`,
     position: "Full-Stack Developer",
-    link: "https://autolabproject.com/",
+    link: "http://gstm.studio/",
   },
   {
     name: "PT. DUTA SAMUDERA MAHENDRA",
@@ -50,7 +65,7 @@ const EXPERIENCE = [
     description: `Developed a comprehensive company profile website designed to
       present the company's brand, services, and values in a visually appealing and highly functional manner and a property listing website aimed at
       providing users with an efficient and user-friendly platform to explore and manage property listings.`,
-    position: "Software Developer (Prev, Team Lead)",
+    position: "IT Developer",
     link: "https://autolabproject.com/",
   },
 ];

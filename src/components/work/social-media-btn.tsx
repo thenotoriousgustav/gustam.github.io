@@ -6,7 +6,7 @@ export default function SocialMediaBtn({ className }: { className?: string }) {
   return (
     <div className={cn("flex space-x-6 lg:space-x-10", className)}>
       <Link
-        href="/"
+        href="mailto:rhezagustam@gmail.com"
         className={cn(
           buttonVariants({ variant: "link" }),
           "p-0 text-gray-400 underline",
@@ -15,7 +15,7 @@ export default function SocialMediaBtn({ className }: { className?: string }) {
         Email
       </Link>
       <Link
-        href="/"
+        href="https://github.com/thenotoriousgustav"
         className={cn(
           buttonVariants({ variant: "link" }),
           "p-0 text-gray-400 underline",
@@ -24,7 +24,7 @@ export default function SocialMediaBtn({ className }: { className?: string }) {
         Github
       </Link>
       <Link
-        href="/"
+        href="https://www.linkedin.com/in/gustamrheza/"
         className={cn(
           buttonVariants({ variant: "link" }),
           "p-0 text-gray-400 underline",
@@ -33,7 +33,7 @@ export default function SocialMediaBtn({ className }: { className?: string }) {
         Linkedin
       </Link>
       <Link
-        href="/"
+        href="https://www.instagram.com/gustamahendr/"
         className={cn(
           buttonVariants({ variant: "link" }),
           "p-0 text-gray-400 underline",
