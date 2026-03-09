@@ -1,9 +1,5 @@
 const GALLERY = [
   {
-    alt: "kaki halloween",
-    img: "kaki-halloween.jpeg",
-  },
-  {
     alt: "theresia.mov",
     img: "theresia.mov",
   },
