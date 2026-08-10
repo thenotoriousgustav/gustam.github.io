@@ -1,5 +1,15 @@
 const EXPERIENCE = [
   {
+    name: "Kementerian Keuangan Republik Indonesia",
+    dates: {
+      start: "09.2025",
+      end: "Present",
+    },
+    description: `<p>Badan Teknologi Informasi dan Intelijen Keuangan (Full Time)</p>`,
+    position: "Full Time",
+    link: "https://www.kemenkeu.go.id/",
+  },
+  {
     name: "PT. Erajaya Swasembada Tbk",
     dates: {
       start: "02.2024",
