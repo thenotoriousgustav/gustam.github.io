@@ -8,7 +8,6 @@ import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { shell, textLink } from '@/lib/styles'
 
-export const dynamic = 'force-dynamic'
 
 export default async function Home() {
   const [home, settings, projects, experiences, about] = await Promise.all([

@@ -4,7 +4,6 @@ import ContentUnavailable from '@/components/content-unavailable'
 import { cn } from '@/lib/utils'
 import { mediaFallback, pageTitle, shell } from '@/lib/styles'
 
-export const dynamic = 'force-dynamic'
 export default async function GalleryPage() {
   const [page, items] = await Promise.all([findGlobal('gallery-page'), findDocs('gallery-items')])
   if (!page || !items) return <ContentUnavailable />

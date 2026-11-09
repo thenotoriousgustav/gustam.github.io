@@ -7,8 +7,12 @@ import { findPost } from '@/lib/payload/server'
 import { cn } from '@/lib/utils'
 import { articleBody, shell, textLink } from '@/lib/styles'
 
-export const dynamic = 'force-dynamic'
 type Args = { params: Promise<{ slug: string }> }
+
+// Posts render on first visit and are then cached (refreshed on CMS changes).
+export async function generateStaticParams() {
+  return []
+}
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params

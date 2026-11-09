@@ -16,7 +16,8 @@ const newsreader = Newsreader({
   variable: "--font-newsreader",
   display: "swap",
 });
-export const dynamic = "force-dynamic";
+// Cached pages, refreshed by the Payload change hooks (payload.config.ts); 5 min is the fallback.
+export const revalidate = 300;
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await findGlobal("site-settings");
   return settings

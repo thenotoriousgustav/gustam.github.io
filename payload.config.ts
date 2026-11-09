@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { buildConfig } from 'payload'
+import { buildConfig, type CollectionConfig, type GlobalConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
@@ -45,6 +45,23 @@ const allowedOrigins = [...new Set([
   ...(process.env.NODE_ENV === 'production' ? [] : ['http://localhost:3000', 'http://127.0.0.1:3000']),
 ].filter((origin): origin is string => Boolean(origin)).map((origin) => new URL(origin).origin))]
 
+// Pages are cached (see `revalidate` in the frontend); any CMS change refreshes them all.
+// Imported lazily: Payload's CLI (migrate, seed, generate:*) runs in plain Node, where next/cache does not resolve.
+const refreshSite = async () => {
+  try {
+    const { revalidatePath } = await import('next/cache')
+    revalidatePath('/', 'layout')
+  } catch { /* outside Next: no page cache to refresh */ }
+}
+const refreshCollection = (collection: CollectionConfig): CollectionConfig => ({
+  ...collection,
+  hooks: { ...collection.hooks, afterChange: [...(collection.hooks?.afterChange ?? []), refreshSite], afterDelete: [...(collection.hooks?.afterDelete ?? []), refreshSite] },
+})
+const refreshGlobal = (global: GlobalConfig): GlobalConfig => ({
+  ...global,
+  hooks: { ...global.hooks, afterChange: [...(global.hooks?.afterChange ?? []), refreshSite] },
+})
+
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || 'development-only-secret-replace-with-a-long-random-value',
   // No serverURL: the admin then calls the API on whichever allowed origin it
@@ -58,8 +75,8 @@ export default buildConfig({
   graphQL: { disable: true },
   cors: allowedOrigins,
   csrf: allowedOrigins,
-  collections: [Users, Media, Projects, Experiences, GalleryItems, Posts],
-  globals: [SiteSettings, Home, About, GalleryPage],
+  collections: [Users, ...[Media, Projects, Experiences, GalleryItems, Posts].map(refreshCollection)],
+  globals: [SiteSettings, Home, About, GalleryPage].map(refreshGlobal),
   editor: lexicalEditor(),
   db: postgresAdapter({ push: false, pool: { connectionString: process.env.DATABASE_URL || 'postgres://placeholder:placeholder@localhost:5432/portfolio' }, migrationDir: path.resolve(dirname, 'src/migrations') }),
   plugins: [vercelBlobStorage({ enabled: Boolean(blobToken), token: blobToken || '', collections: { media: { prefix: 'portfolio', disablePayloadAccessControl: true } }, clientUploads: true, alwaysInsertFields: true })],

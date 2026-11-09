@@ -9,12 +9,15 @@ import ContentUnavailable from '@/components/content-unavailable'
 import { cn } from '@/lib/utils'
 import { richText, sectionTitle, shell, textLink } from '@/lib/styles'
 
-export const dynamic = 'force-dynamic'
 type Project = { id: number; slug: string; title: string; displayDate: string; summary: string; externalURL?: string; description: Parameters<typeof RichText>[0]['data']; screenshots?: { id?: string; media?: { url?: string; width?: number; height?: number; alt?: string } }[] }
 async function getProject(slug: string): Promise<Project | null | undefined> {
   const projects = await findDocs('projects')
   if (!projects) return null
   return (projects as unknown as Project[]).find((project) => project.slug === slug)
+}
+// Prerender every project; new ones render on first visit and are then cached.
+export async function generateStaticParams() {
+  return ((await findDocs('projects')) || []).map((project) => ({ slug: project.slug }))
 }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params

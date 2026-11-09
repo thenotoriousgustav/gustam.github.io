@@ -6,7 +6,6 @@ import { findPosts } from '@/lib/payload/server'
 import { cn } from '@/lib/utils'
 import { pageTitle, shell, textLink } from '@/lib/styles'
 
-export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Blog | Gustam Rheza',
   description: 'Notes on software, building for the web, and things I’m learning along the way.',
