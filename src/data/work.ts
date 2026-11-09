@@ -1,6 +1,25 @@
 const WORK = [
   {
-    name: "F1 Schedule App  ",
+    slug: 'silamar',
+    name: 'Silamar',
+    images: [],
+    description: '<p>Built an AI-powered resume and job application manager with automated cover letter generation and resume analysis.</p><p>Used Next.js 15, Supabase, and Vercel AI SDK, with GPT-4o mini integration for PDF parsing. Implemented auto-save and an optimistic UI to keep editing responsive.</p>',
+    summary: 'An AI resume and application manager with cover letter generation, resume analysis, and auto-save.',
+    date: 'AI web application',
+    link: '',
+  },
+  {
+    slug: 'evaluation-cat',
+    name: 'Evaluation CAT',
+    images: [],
+    description: '<p>Developed a web-based examination system focused on preventing cheating and detecting impersonation.</p><p>Built with Next.js, NestJS, and Tailwind CSS, and deployed on Vercel. The platform combines examination workflows with identity verification and exam security features.</p>',
+    summary: 'A computer-assisted examination platform with cheating prevention and identity verification.',
+    date: 'Web examination system',
+    link: 'https://evaluation-cat.vercel.app/',
+  },
+  {
+    slug: "f1-schedule-app",
+    name: "F1 Schedule App",
     images: ["f1.png", "f1-2.png"],
     description:
       "<p>Our user-friendly interface and comprehensive features make following the F1 season an exciting and immersive experience. Whether you're a seasoned fan or new to the sport, our app caters to all levels of enthusiasm for the adrenaline-fueled world of Formula 1 racing.</p>",
@@ -10,23 +29,26 @@ const WORK = [
     link: "",
   },
   {
+    slug: "weather-forecast",
     name: "Weather Forecast",
     images: ["weather.png", "weather-2.png"],
-    description: `<p>Our app is designed to be user-friendly, providing al the essential weather information you need in a visually appealing and easy-to-navigate interface. With reliable forecasts and innovative features, never let the weather catch you of guard again. Download our app today and make informed decisions based on the latest weather predictions.</p>`,
+    description: `<p>Our app is designed to be user-friendly, providing all the essential weather information you need in a visually appealing and easy-to-navigate interface. With reliable forecasts and innovative features, never let the weather catch you off guard again. Download our app today and make informed decisions based on the latest weather predictions.</p>`,
     summary:
       "A weather forecast app that provides reliable forecasts and innovative features.",
     date: "05.2023",
     link: "",
   },
   {
+    slug: "east-side-canary",
     name: "East Side Canary",
     images: ["eastside.png"],
-    description: `<p>eastside canary is a real estate web</p>`,
-    summary: "A real estate web",
+    description: `<p>East Side Canary is a real estate website.</p>`,
+    summary: "A real estate website.",
     date: "03.2023",
     link: "https://eastside-canary.netlify.app/",
   },
   {
+    slug: "landmarks",
     name: "Landmarks",
     images: ["landmarks.png", "landmarks-2.png"],
     description: `<p>To enhance the user experience in my SwiftUI projects, I have developed intuitive ways for users to explore a comprehensive list of landmarks and view detailed information about each location.</p>
@@ -39,20 +61,16 @@ const WORK = [
     link: "",
   },
   {
+    slug: "news-app",
     name: "News App",
     images: ["news-app.png", "news-app-2.png"],
-    description: `<p>I developed a sleek and user-friendly News App using SwiftUI and the News API, aimed at delivering the latest news articles and offering a streamlined, personalized reading experience. This app is designed to cater to users who seek quick access to current events while enjoying an intuitive and engaging interface.</p>
-    <p>By integrating the powerful News API, the app fetches and displays the latest news articles from various reliable sources. This ensures that users receive up-to-date information across a wide range of topics, from world news and politics to technology and entertainment.</p>
-    <h1 class="font-semibold">Key Features:</h1>
-    <p>Bookmarking: This feature allows users to bookmark their favorite articles, making it easy to access and read them later. This enhances the user experience by providing a convenient way to save important or interesting content for future reference.</p>
-    <p>Real-Time Updates: The app provides real-time news updates, ensuring users are always informed about the latest developments as they happen. This is particularly useful for staying on top of breaking news and trending stories.</p>
-    `,
-    summary:
-      "A News App that delivers the latest news articles and offers a streamlined, personalized reading experience.",
+    description: '<p>Developed an iOS news reader that delivers real-time articles from multiple sources through the News API.</p><p>Built with Swift, SwiftUI, and Xcode, with a responsive interface optimized for mobile devices.</p>',
+    summary: 'An iOS news reader built with SwiftUI and the News API.',
     date: "03.2023",
     link: "",
   },
   {
+    slug: "spotify-stats",
     name: "Spotify Stats",
     images: ["spotify-stats.png"],
     description:
@@ -60,18 +78,16 @@ const WORK = [
     summary:
       "A web application that provides users with detailed insights into their listening habits, including their most played tracks and favorite artists.",
     date: "03.2023",
-    link: "https://spotify-stats-psi.vercel.app/",
+    // Previous deployment (https://spotify-stats-psi.vercel.app/) returns 404.
+    link: "",
   },
 
   {
+    slug: "inventory-management-systems-app",
     name: "Inventory Management Systems App",
     images: ["iknowaplace.jpg", "iknowaplace2.jpg"],
-    description: `
-    <p>Our Inventory Management System App is a versatile solution designed to meet the needs of businesses of all sizes across various industries. Whether you operate a retail store, warehouse, or distribution center, our software streamlines inventory processes, optimizes stock control, and enhances operational efficiency.</p>
-    <p>Our app simplifies inventory management, allowing businesses to track stock levels, orders, sales, and deliveries with ease. Automated workflows reduce manual entry errors, saving time and ensuring accuracy. Built using VB.NET, the app offers a robust and stable platform for handling complex inventory tasks.</p>
-    `,
-    summary:
-      "An Inventory Management System App that streamlines inventory processes, optimizes stock control, and enhances operational efficiency.",
+    description: '<p>Developed a Windows desktop application to manage products, stock levels, suppliers, and transaction records.</p><p>Built with Visual Basic .NET and Microsoft SQL Server, with CRUD operations, relational data modeling, validation, and role-based access control.</p><p>Implemented real-time stock updates and reporting to support inventory accuracy and daily operations.</p>',
+    summary: 'A Windows inventory system with stock tracking, supplier management, reporting, and role-based access.',
     date: "10.2022",
     link: "https://github.com/thenotoriousgustav/inventoy_management_system",
   },

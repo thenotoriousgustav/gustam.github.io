@@ -1,91 +1,65 @@
 const GALLERY = [
+  { alt: "Theresia", img: "theresia.mov" },
   {
-    alt: "theresia.mov",
-    img: "theresia.mov",
-  },
-  {
-    alt: "basket-gundar.jpg",
+    alt: "Basketball at Gunadarma",
     img: "basket-gundar.jpg",
+    width: 4000,
+    height: 3000,
   },
   {
-    alt: "ferrari-anet.jpg",
+    alt: "Ferrari with Anet",
     img: "ferrari-anet.jpg",
+    width: 1108,
+    height: 1478,
   },
+  { alt: "A portrait of me", img: "gweh.jpg", width: 2160, height: 3119 },
+  { alt: "Model boongan", img: "model-boongan.jpg", width: 1080, height: 1920 },
+  { alt: "Anak emo", img: "anak-emo.jpg", width: 1108, height: 1478 },
   {
-    alt: "gweh.jpg",
-    img: "gweh.jpg",
-  },
-  
-  {
-    alt: "model-boongan.jpg",
-    img: "model-boongan.jpg",
-  },
-  {
-    alt: "anak emo",
-    img: "anak-emo.jpg",
-  },
-  {
-    alt: "kiss-tere.png",
+    alt: "A moment with Theresia",
     img: "kiss-tere.png",
+    width: 526,
+    height: 522,
   },
+  { alt: "Theresia, clip one", img: "tere-1.mov" },
+  { alt: "Theresia, clip two", img: "tere-2.mov" },
+  { alt: "PS with Loise", img: "ps-loise.jpeg", width: 4032, height: 3024 },
   {
-    alt: "tere-1.mov",
-    img: "tere-1.mov",
-  },
-  {
-    alt: "tere-2.mov",
-    img: "tere-2.mov",
-  },
-  
-  {
-    alt: "ps-loise.jpeg",
-    img: "ps-loise.jpeg",
-  },
-  {
-    alt: "sapiq-gweh-nabil.jpg",
+    alt: "Sapiq, me, and Nabil",
     img: "sapiq-gweh-nabil.jpg",
+    width: 1108,
+    height: 1478,
   },
+  { alt: "At Ashta", img: "ashta-cuy.jpg", width: 828, height: 1034 },
+  { alt: "Theresia, clip three", img: "tere-3.mov" },
+  { alt: "Ashta y2ngab", img: "ashta-y2ngab.jpg", width: 1080, height: 1080 },
+  { alt: "Homieseggs", img: "homieseggs.jpg", width: 960, height: 1706 },
   {
-    alt: "ashta cuy",
-    img: "ashta-cuy.jpg",
-  },
-  {
-    alt: "tere-3.mov",
-    img: "tere-3.mov",
-  },
-  {
-    alt: "ashta y2ngab",
-    img: "ashta-y2ngab.jpg",
-  },
-  {
-    alt: "homieseggs",
-    img: "homieseggs.jpg",
-  },
-  {
-    alt: "lift ashta",
+    alt: "In the lift at Ashta",
     img: "lift-ashta.jpg",
+    width: 960,
+    height: 1280,
   },
   {
-    alt: "lift ashta lagi",
+    alt: "Another moment in the lift at Ashta",
     img: "lift-ashta-lagi.jpg",
+    width: 1108,
+    height: 1478,
   },
-
+  { alt: "Me and Kibo", img: "gue-dan-kibo.jpg", width: 4128, height: 2322 },
   {
-    alt: "gue-dan-kibo.jpg",
-    img: "gue-dan-kibo.jpg",
-  },
-  {
-    alt: "mrt-shas.jpg",
+    alt: "On the MRT with Shas",
     img: "mrt-shas.jpg",
+    width: 828,
+    height: 1472,
   },
   {
-    alt: "pura-pura-belajar.jpg",
+    alt: "Pura-pura belajar",
     img: "pura-pura-belajar.jpg",
+    width: 4000,
+    height: 3000,
   },
-  {
-    alt: "pasar-baroe.jpg",
-    img: "pasar-baroe.jpg",
-  },
-    
+  { alt: "Pasar Baroe", img: "pasar-baroe.jpg", width: 3264, height: 2448 },
 ];
+export type GalleryItem = (typeof GALLERY)[number];
 export default GALLERY;

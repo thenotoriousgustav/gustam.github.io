@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gustam Rheza Portfolio
 
-## Getting Started
+Next.js portfolio with Payload CMS 3 at `/admin`, PostgreSQL on Neon and public media in Vercel Blob. Public pages read Payload at request time; saved changes appear on the next request/refresh without a rebuild. The existing portfolio layout, routes and legacy source data/assets are retained.
 
-First, run the development server:
+## Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js `24.22.1` (24.x) and pnpm.
+- Separate Neon database branches and Blob stores for local/preview and production.
+- `DATABASE_URL`, `PAYLOAD_SECRET`, `APP_ORIGIN`, and `BLOB_READ_WRITE_TOKEN` (see `.env.example`). Never commit actual secrets.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## First setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Provision a development Neon database and a development Vercel Blob store. Copy `.env.example` to `.env.local` and set their credentials, a random `PAYLOAD_SECRET` (32+ characters), and `APP_ORIGIN=http://localhost:3000`.
+2. Install packages: `pnpm install`.
+3. Apply the committed database schema: `pnpm migrate`.
+4. Import the existing 7 projects, 5 experiences, 21 Gallery entries, media, and page copy: `pnpm seed`. The command is manual, requires Blob storage access, is idempotent, and skips existing edited content.
+5. Create the initial manager account once: set `ADMIN_EMAIL` and a unique `ADMIN_PASSWORD` (at least 16 characters) in the process environment, then run `pnpm bootstrap-admin`. Account creation through the public API is disabled. Remove the temporary credentials from the shell afterward.
+6. Run `pnpm dev`, sign in at `/admin`, and update content.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Seed the production database only after backing it up and verifying the preview import. Do not share production secrets or database dumps in chat.
 
-## Learn More
+## Schema and deployment commands
 
-To learn more about Next.js, take a look at the following resources:
+- `pnpm generate:types` — update `src/payload-types.ts` after schema changes.
+- `pnpm generate:importmap` — regenerate the Payload admin import map.
+- `pnpm migrate:create` — create a new migration after a schema change.
+- `pnpm migrate` — apply committed migrations. Run as a controlled release step before deploying the code that uses a new schema; do not run migrations during every build/startup.
+- `pnpm seed` — one-time/manual legacy content import.
+- `pnpm bootstrap-admin` — create the first manager only.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For Vercel, set production-only Neon/Blob credentials and `APP_ORIGIN` in project environment settings. Use separate preview credentials/stores. In the deployment release process, take a Neon backup/branch, run `pnpm migrate` against the target database, deploy, and verify `/admin` plus the public routes. Uploaded files are public by URL; do not store private or sensitive media in this collection. Large browser uploads use Payload's authenticated Vercel Blob client-upload flow rather than passing the file through a Vercel function.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Content and security notes
 
-## Deploy on Vercel
+- Collections: users, media, projects, experiences, gallery items. Globals: site settings, home, about, Gallery page.
+- Portfolio data and media are publicly readable; writes require the manager account. User records are private and public user creation is disabled.
+- Rich copy is stored as Lexical JSON and rendered through Payload's Lexical renderer, not raw HTML.
+- Project slugs are immutable after creation. Keep a separate backup before migrations or bulk imports.
+- Videos need a separate image poster. The supported uploads are JPEG, PNG, WebP, AVIF, MP4 and MOV, maximum 50 MB. MOV playback depends on the visitor's browser; the Gallery retains a poster and original-file link if playback fails.
+- The generated media hostname allowlist is derived from the configured Blob token; it does not allow arbitrary remote image hosts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See [`docs/payload-operations.md`](docs/payload-operations.md) for provisioning, backups, imports and recovery details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Verification
+
+Run `pnpm test:access`, `pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm build`, and `git diff --check`. Cloud migration, manager auth, Blob uploads and responsive browser review require owner-provided Neon/Blob credentials and are not simulated by a local build.

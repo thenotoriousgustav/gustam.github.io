@@ -1,72 +1,68 @@
 const EXPERIENCE = [
   {
-    name: "PT. Erajaya Swasembada Tbk",
-    dates: {
-      start: "02.2024",
-      end: "06.2024",
-    },
-    description: `<p>As a Front-End Developer (MSIB Batch 7) at Erajaya (Eraspace) from Aug–Dec 2024,
-     I built and maintained reusable UI components for the iBox and Eraspace e-commerce platforms and internal tools using Next.js and React, 
-     collaborating closely with UI/UX, QA, and backend teams in Agile sprints to ship features on schedule. I also led the development of a no-code CMS Content Generator 
-     that enabled non-technical teams to create dynamic pages and email newsletters without engineering support, significantly accelerating
-    content production; this project was recognized as the Top 1 Project Finalist among 100+ interns.</p>
-      `,
-    position: "Front End Developer",
-    link: "https://ibox.co.id/",
+    sourceKey: 'cv-experience:kemenkeu-batii',
+    name: 'Kementerian Keuangan Republik Indonesia — BaTii',
+    dates: { start: '09.2025', end: 'Present' },
+    position: 'Middle Front End Developer · Contract',
+    description: `<p>Re-engineered the legacy Rapat module into an Event Management platform, bringing event scheduling, resource allocation, and attendee coordination into one place.</p>
+<p>Architected Kolase to track official correspondence from Nadine, with real-time status monitoring, audit trails, and escalation support.</p>
+<p>Built the Tim module to model organizational structure, assign responsibilities, and manage permissions. Worked with end users and program owners to refine requirements and conduct user acceptance testing.</p>`,
+    link: '',
   },
   {
-    name: "Kementerian Keuangan Republik Indonesia",
-    dates: {
-      start: "06.2024",
-      end: "012.2024",
-    },
-    description: `<p>During my internship at the Ministry of Finance, I significantly contributed to modernizing their web infrastructure. 
-    I upgraded the Next.js framework from version 9 to 14, incorporating the latest features and performance improvements. 
-    I also enhanced code readability and maintainability by converting class components into functional components.</p>
-
-    <p class="mt-2">Additionally, I developed KEMENKEU CAT, an AI-based exam website designed to ensure exam integrity through advanced technologies such as face recognition,
-    voice activity detection, OCR, and object detection. This project demonstrated my ability to integrate
-    various AI and machine learning technologies into a cohesive and robust system for secure online examinations.</p>`,
-    position: "Front End Javascript Developer",
-    link: "https://evaluation-cat.vercel.app/",
+    sourceKey: 'legacy-experience:PT. Erajaya Swasembada Tbk',
+    name: 'PT. Erajaya Swasembada Tbk (Eraspace)',
+    dates: { start: '07.2024', end: '12.2024' },
+    position: 'Front End Developer · MSIB Batch 7 Internship',
+    description: `<p>Built Era Builder, a no-code CMS Content Generator that enabled internal teams to create dynamic pages and email newsletters without coding. Won 1st Place in the Final Project Presentation among 100+ interns.</p>
+<p>Improved frontend performance on iBox and Eraspace through component refactoring, data fetching, code splitting, and state management.</p>
+<p>Collaborated with UI/UX, QA, and backend teams in Agile sprints to deliver features on time and within scope.</p>`,
+    link: 'https://ibox.co.id/',
   },
   {
-    name: "INDONESIA PROPERTI",
-    dates: {
-      start: "04.2023",
-      end: "07.2023",
-    },
-    description: `Played a crucial role as a Full Stack Developer, 
-    where I focused on developing and enhancing a dynamic property listing website. 
-    My responsibilities included utilizing cutting-edge technologies to deliver a highly interactive, 
-    efficient, and user-friendly platform for property management and browsing.`,
-    position: "Full-Stack Developer",
-    link: "https://indonesia.properti.com/",
+    sourceKey: 'legacy-experience:Kementerian Keuangan Republik Indonesia',
+    name: 'Kementerian Keuangan Republik Indonesia — BPPK',
+    dates: { start: '02.2024', end: '07.2024' },
+    position: 'Front End JavaScript Developer · MSIB Batch 6 Internship',
+    description: `<p>Awarded 1st Place for Best Final Project Contribution in the internship program.</p>
+<p>Migrated KLC from Next.js 9 to 14 and refactored class components into functional components to improve performance and maintainability.</p>
+<p>Built Kemenkeu CAT for USKP (Ujian Sertifikasi Konsultan Pajak), integrating real-time fraud detection and automated identity verification. Used Face API, TensorFlow, and Tesseract for face recognition, object detection, and OCR-based ID card verification.</p>`,
+    link: 'https://evaluation-cat.vercel.app/',
   },
   {
-    name: "GSTM STUDIO",
-    dates: {
-      start: "09.2022",
-      end: "03.2023",
-    },
-    description: `GSTM Studio is a digital studio born from a college project, 
-    our journey began as a simple academic endeavor, but swiftly evolved into a bold vision: to redefine digital experiences
-    through our digital studio website. With diverse expertise and boundless passion,
-    we've built GSTM Studio into a hub for creative collaboration and groundbreaking digital solutions.`,
-    position: "Full-Stack Developer",
-    link: "http://gstm.studio/",
+    sourceKey: 'legacy-experience:Indonesia Properti',
+    name: 'Indonesiaproperti.com',
+    dates: { start: '04.2023', end: '07.2023' },
+    position: 'Full Stack Developer · Remote',
+    description: `<p>Optimized the Next.js frontend and server-side rendering for search visibility, achieving Google Lighthouse scores of 100 for Performance and 94 for Accessibility.</p>
+<p>Built an interactive property browsing experience with the Next.js App Router and developed the website’s CMS using Sanity.io, GROQ, and GraphQL.</p>`,
+    link: 'https://indonesia.properti.com/',
   },
   {
-    name: "PT. DUTA SAMUDERA MAHENDRA",
-    dates: {
-      start: "12.2021",
-      end: "5.2022",
-    },
-    description: `Developed a comprehensive company profile website designed to
-      present the company's brand, services, and values in a visually appealing and highly functional manner and a property listing website aimed at
-      providing users with an efficient and user-friendly platform to explore and manage property listings.`,
-    position: "IT Developer",
-    link: "https://autolabproject.com/",
+    sourceKey: 'legacy-experience:GSTM Studio',
+    name: 'GSTM Studio',
+    dates: { start: '09.2022', end: '03.2023' },
+    position: 'Full-Stack Developer',
+    description: '<p>Developed a digital studio website that grew out of a college project, working across the stack to support creative collaboration.</p>',
+    link: 'http://gstm.studio/',
   },
-];
-export default EXPERIENCE;
+  {
+    sourceKey: 'legacy-experience:PT. Duta Samudera Mahendra',
+    name: 'PT. Duta Samudera Mahendra',
+    dates: { start: '12.2021', end: '02.2023' },
+    position: 'IT Developer & Admin · Full Time',
+    description: `<p>Developed and maintained responsive web applications with React.js and Strapi CMS. Collaborated with senior developers and cross-functional teams to deliver scalable frontend features.</p>
+<p>Managed hosting, deployment, and domain configuration for client and internal projects.</p>`,
+    link: 'https://autolabproject.com/',
+  },
+  {
+    sourceKey: 'cv-experience:kominfo-pusdatin',
+    name: 'Kementerian Komunikasi dan Informatika Republik Indonesia — Pusdatin',
+    dates: { start: '02.2020', end: '08.2020' },
+    position: 'IT Support · Praktik Kerja Lapangan',
+    description: `<p>Provided hardware, software, and network support for internal staff, responding to helpdesk tickets and on-site requests.</p>
+<p>Supported data center and server room operations through system monitoring, basic maintenance, and technical documentation. Assisted with installing and configuring operating systems, office applications, and government-standard software.</p>`,
+    link: '',
+  },
+]
+export default EXPERIENCE

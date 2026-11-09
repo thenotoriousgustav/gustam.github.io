@@ -1,0 +1,10 @@
+import config from '@payload-config'
+import '@payloadcms/next/css'
+import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
+import { importMap } from './importMap.js'
+
+type Args = { params: Promise<{ segments: string[] }>; searchParams: Promise<{ [key: string]: string | string[] }> }
+export const generateMetadata = ({ params, searchParams }: Args) => generatePageMetadata({ config, params, searchParams })
+export default function Page({ params, searchParams }: Args) {
+  return <RootPage config={config} params={params} searchParams={searchParams} importMap={importMap} />
+}

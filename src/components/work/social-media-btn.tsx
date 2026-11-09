@@ -1,55 +1,18 @@
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { buttonVariants } from "../ui/button";
 
-export default function SocialMediaBtn({ className }: { className?: string }) {
+type SocialLink = { label: string; url: string };
+export default function SocialMediaBtn({ className, links }: { className?: string; links: SocialLink[] }) {
   return (
-    <div className={cn("flex space-x-6 lg:space-x-10", className)}>
-      <Link
-        href="mailto:rhezagustam@gmail.com"
-        className={cn(
-          buttonVariants({ variant: "link" }),
-          "p-0 text-gray-400 underline",
-        )}
-      >
-        Email
-      </Link>
-      <Link
-        href="https://github.com/thenotoriousgustav"
-        className={cn(
-          buttonVariants({ variant: "link" }),
-          "p-0 text-gray-400 underline",
-        )}
-      >
-        Github
-      </Link>
-      <Link
-        href="https://www.linkedin.com/in/gustamrheza/"
-        className={cn(
-          buttonVariants({ variant: "link" }),
-          "p-0 text-gray-400 underline",
-        )}
-      >
-        Linkedin
-      </Link>
-      <Link
-        href="https://www.instagram.com/gustamahendr/"
-        className={cn(
-          buttonVariants({ variant: "link" }),
-          "p-0 text-gray-400 underline",
-        )}
-      >
-        Instagram
-      </Link>
-      <Link
-        href="/"
-        className={cn(
-          buttonVariants({ variant: "link" }),
-          "p-0 text-gray-400 underline",
-        )}
-      >
-        Spotify
-      </Link>
+    <div className={cn("flex flex-wrap gap-x-5 gap-y-1", className)} aria-label="Contact links">
+      {links.map(({ label, url }) => (
+        <a
+          key={label}
+          href={url}
+          className="inline-flex min-h-11 items-center text-primary underline underline-offset-[5px] hover:text-ink"
+        >
+          {label}
+        </a>
+      ))}
     </div>
   );
 }

@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--canvas);
+  --color-foreground: var(--ink);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--ink);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--blue);
+  --color-primary-foreground: var(--on-blue);
+  --color-secondary: var(--inset);
+  --color-secondary-foreground: var(--ink);
+  --color-muted: var(--inset);
+  --color-muted-foreground: var(--soft);
+  --color-accent: var(--inset);
+  --color-accent-foreground: var(--ink);
+  --color-border: var(--inset);
+  --color-input: var(--inset);
+  --color-ring: var(--blue);
+  --font-sans: var(--font-manrope), Arial, Helvetica, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+
+  /* Page palette: bg-canvas, bg-surface, bg-inset, text-ink, text-soft. */
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-inset: var(--inset);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Named text sizes keep the site's reading leading instead of Tailwind's. */
+  --text-sm--line-height: 1.65;
+  --text-base--line-height: 1.65;
+  --text-lg--line-height: 1.65;
+  --text-xl--line-height: 1.65;
+}
+
+:root {
+  --canvas: #f4f5f7;
+  --surface: #ffffff;
+  --inset: #eaedf2;
+  --ink: #18202b;
+  --soft: #536174;
+  --blue: #2257d6;
+  --on-blue: #ffffff;
+  --scrim: rgb(10 14 20 / 80%);
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--inset);
+  }
+  body {
+    margin: 0;
+    padding-bottom: 110px;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 650;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+  h1 {
+    font-size: clamp(30px, 3vw, 40px);
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  select {
+    cursor: pointer;
+    font: inherit;
+  }
+  a,
+  button,
+  select {
+    transition:
+      color 150ms,
+      background-color 150ms,
+      opacity 150ms,
+      transform 150ms;
+  }
+  :focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+  }
+  ::selection {
+    background: var(--blue);
+    color: var(--on-blue);
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--soft) var(--surface);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
