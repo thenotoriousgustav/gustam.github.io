@@ -23,6 +23,6 @@ export const GalleryItems: CollectionConfig = {
     { name: 'kind', type: 'select', required: true, options: [{ label: 'Image', value: 'image' }, { label: 'Video', value: 'video' }] },
     { name: 'poster', type: 'relationship', relationTo: 'media', admin: { condition: (_, data) => data?.kind === 'video' } },
     // Unused since the gallery sorts by upload date; kept (hidden) so no migration is needed to drop the column.
-    { name: 'order', type: 'number', required: true, defaultValue: 0, admin: { hidden: true } }, { name: 'sourceKey', type: 'text', unique: true, admin: { readOnly: true } },
+    { name: 'order', type: 'number', required: true, defaultValue: 0, admin: { hidden: true } }, { name: 'sourceKey', type: 'text', unique: true, admin: { hidden: true } },
   ],
 }

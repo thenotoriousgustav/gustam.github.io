@@ -26,6 +26,6 @@ export const Projects: CollectionConfig = {
     { name: 'screenshots', type: 'array', fields: [{ name: 'media', type: 'relationship', relationTo: 'media', required: true }] },
     { name: 'externalURL', type: 'text', validate: (value: unknown) => value == null || (typeof value === 'string' && safeURL(value)) || 'Use an http or https URL' },
     { name: 'order', type: 'number', required: true, defaultValue: 0, admin: { position: 'sidebar' } },
-    { name: 'sourceKey', type: 'text', unique: true, admin: { readOnly: true, position: 'sidebar' } },
+    { name: 'sourceKey', type: 'text', unique: true, admin: { hidden: true } },
   ],
 }
