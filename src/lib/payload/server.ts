@@ -21,7 +21,9 @@ export function findDocs(collection: 'gallery-items'): Promise<GalleryItem[] | n
 export async function findDocs(collection: 'projects' | 'experiences' | 'gallery-items') {
   try {
     const payload = await client()
-    const result = await payload.find({ collection, depth: 2, pagination: false, sort: ['order', 'id'], overrideAccess: false })
+    // The gallery shows the newest upload first; projects and experiences keep their manual order.
+    const sort = collection === 'gallery-items' ? ['-createdAt', '-id'] : ['order', 'id']
+    const result = await payload.find({ collection, depth: 2, pagination: false, sort, overrideAccess: false })
     return result.docs
   } catch (error) {
     console.error(`Portfolio content request failed (${collection})`, error)

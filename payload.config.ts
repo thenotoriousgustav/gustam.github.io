@@ -69,6 +69,26 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     importMap: { baseDir: dirname },
+    // Live Preview: the page for the document opens beside the editor and refreshes on Save.
+    livePreview: {
+      collections: ['projects', 'posts', 'experiences', 'gallery-items'],
+      globals: ['home', 'about', 'gallery-page', 'site-settings'],
+      url: ({ data, collectionConfig, globalConfig, req }) => {
+        // Same origin as the admin, so preview works on every allowed domain and on localhost.
+        const host = req.headers.get('x-forwarded-host') || req.headers.get('host')
+        const protocol = req.headers.get('x-forwarded-proto') || (host?.startsWith('localhost') || host?.startsWith('127.0.0.1') ? 'http' : 'https')
+        const paths: Record<string, string> = {
+          projects: `/work/${data?.slug}`, posts: `/blog/${data?.slug}`, experiences: '/', 'gallery-items': '/gallery',
+          home: '/', about: '/#about', 'gallery-page': '/gallery', 'site-settings': '/',
+        }
+        return `${protocol}://${host}${paths[collectionConfig?.slug || globalConfig?.slug || ''] || '/'}`
+      },
+      breakpoints: [
+        { name: 'mobile', label: 'Mobile', width: 390, height: 844 },
+        { name: 'tablet', label: 'Tablet', width: 768, height: 1024 },
+        { name: 'desktop', label: 'Desktop', width: 1440, height: 900 },
+      ],
+    },
     autoLogin: process.env.NODE_ENV === 'development' && process.env.PAYLOAD_DEV_EMAIL ? { email: process.env.PAYLOAD_DEV_EMAIL, password: process.env.PAYLOAD_DEV_PASSWORD || '', prefillOnly: true } : false,
   },
   routes: { admin: '/admin', api: '/api' },

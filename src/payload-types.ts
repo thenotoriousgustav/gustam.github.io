@@ -615,6 +615,17 @@ export interface About {
   };
   exploringTitle: string;
   exploring: string;
+  /**
+   * Newest school first.
+   */
+  education?:
+    | {
+        school: string;
+        programme: string;
+        period: string;
+        id?: string | null;
+      }[]
+    | null;
   learningTitle: string;
   learning: string;
   interestsTitle: string;
@@ -685,6 +696,14 @@ export interface AboutSelect<T extends boolean = true> {
   introduction?: T;
   exploringTitle?: T;
   exploring?: T;
+  education?:
+    | T
+    | {
+        school?: T;
+        programme?: T;
+        period?: T;
+        id?: T;
+      };
   learningTitle?: T;
   learning?: T;
   interestsTitle?: T;

@@ -4,6 +4,7 @@ import "./styles/globals.css";
 import Navigation from "@/components/navigation";
 import { findGlobal } from "@/lib/payload/server";
 import ContentUnavailable from "@/components/content-unavailable";
+import LivePreviewRefresh from "@/components/live-preview-refresh";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default async function FrontendLayout({
           <main id="main-content" tabIndex={-1}>
             {settings ? children : <ContentUnavailable />}
           </main>
+          <LivePreviewRefresh />
         </div>
       </body>
     </html>

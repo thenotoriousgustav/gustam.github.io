@@ -6,21 +6,6 @@ import { richText, sectionTitle } from '@/lib/styles'
 
 type Entry = { key: string; title: string; detail?: string }
 
-/**
- * Education is one CMS text: a block per school, separated by a blank line,
- * "Name — Place" then "Programme, 2021–2025. …". Returns null if it doesn't parse.
- */
-function parseEducation(text: string): Entry[] | null {
-  const schools = text.split(/\n\s*\n/).map((block) => {
-    const [first = '', second = ''] = block.trim().split('\n')
-    const years = second.match(/(\d{4})\s*[–-]\s*(\d{4})/)
-    const name = first.split(' — ')[0].trim()
-    const programme = second.split(/,\s*\d{4}/)[0].trim()
-    return years && name && programme ? { key: `${years[1]}–${years[2]}`, title: name, detail: programme } : null
-  })
-  return schools.length && schools.every(Boolean) ? (schools as Entry[]) : null
-}
-
 /** "Indonesian — Native" per line. Returns null if a line has no " — ". */
 function parsePairs(text: string): Entry[] | null {
   const lines = text.split('\n').map((line) => line.trim()).filter(Boolean)
@@ -65,7 +50,7 @@ export default function AboutSection({ about }: { about: About }) {
           <RichText data={about.introduction} />
         </div>
         <div className="mt-14 grid gap-12 sm:mt-16">
-          <Group label={about.exploringTitle} entries={parseEducation(about.exploring)} fallback={about.exploring} />
+          {about.education?.length ? <Group label={about.exploringTitle} entries={about.education.map((school) => ({ key: school.period, title: school.school, detail: school.programme }))} /> : null}
           {skills.length > 0 && <Group label={about.favoritesTitle} entries={skills} />}
           <Group label={about.interestsTitle} entries={parsePairs(about.interests)} fallback={about.interests} />
         </div>

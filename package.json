@@ -22,6 +22,7 @@
     "@neon/config": "^1.13.0",
     "@next/env": "16.4.5",
     "@payloadcms/db-postgres": "3.93.0",
+    "@payloadcms/live-preview-react": "3.93.0",
     "@payloadcms/next": "3.93.0",
     "@payloadcms/richtext-lexical": "3.93.0",
     "@payloadcms/storage-vercel-blob": "3.93.0",
