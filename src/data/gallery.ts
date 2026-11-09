@@ -1,5 +1,10 @@
 const GALLERY = [
-  { alt: "Theresia", img: "theresia.mov" },
+  {
+    alt: "Natalin at Jakarta Cathedral",
+    img: "natalin-katedral.jpg",
+    width: 2400,
+    height: 3200,
+  },
   {
     alt: "Basketball at Gunadarma",
     img: "basket-gundar.jpg",
@@ -16,22 +21,12 @@ const GALLERY = [
   { alt: "Model boongan", img: "model-boongan.jpg", width: 1080, height: 1920 },
   { alt: "Anak emo", img: "anak-emo.jpg", width: 1108, height: 1478 },
   {
-    alt: "A moment with Theresia",
-    img: "kiss-tere.png",
-    width: 526,
-    height: 522,
-  },
-  { alt: "Theresia, clip one", img: "tere-1.mov" },
-  { alt: "Theresia, clip two", img: "tere-2.mov" },
-  { alt: "PS with Loise", img: "ps-loise.jpeg", width: 4032, height: 3024 },
-  {
     alt: "Sapiq, me, and Nabil",
     img: "sapiq-gweh-nabil.jpg",
     width: 1108,
     height: 1478,
   },
   { alt: "At Ashta", img: "ashta-cuy.jpg", width: 828, height: 1034 },
-  { alt: "Theresia, clip three", img: "tere-3.mov" },
   { alt: "Ashta y2ngab", img: "ashta-y2ngab.jpg", width: 1080, height: 1080 },
   { alt: "Homieseggs", img: "homieseggs.jpg", width: 960, height: 1706 },
   {
