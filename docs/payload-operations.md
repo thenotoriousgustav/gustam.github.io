@@ -4,7 +4,7 @@
 
 Create at least two independent environments: local/preview and production. Use separate Neon branches/databases, separate Vercel Blob stores/tokens, separate `PAYLOAD_SECRET` values and distinct `APP_ORIGIN` values. Never point a preview deployment at production credentials. `.env.example` lists the variables; local secrets belong in ignored `.env.local`, and production values belong in Vercel's encrypted environment settings.
 
-`APP_ORIGIN` is the canonical application origin including scheme, for example `https://portfolio.example.com` (no path). It is used for Payload's server URL, CORS and CSRF origin allowlists. Set preview and production origins independently. Blob stores are public because this portfolio's media is public by design. Do not upload confidential files.
+`APP_ORIGIN` is the canonical application origin including scheme, for example `https://portfolio.example.com` (no path). It is used for Payload's CORS and CSRF origin allowlists. `APP_EXTRA_ORIGINS` (comma-separated origins, no paths) adds more domains the admin may be used from, for example the `*.vercel.app` URL next to the custom domain; `http://localhost:3000` is allowed automatically outside production. Payload's `serverURL` is left unset so the admin calls the API on whichever allowed origin it was opened from. Set preview and production origins independently. Blob stores are public because this portfolio's media is public by design. Do not upload confidential files.
 
 ## Database and schema changes
 

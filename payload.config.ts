@@ -32,9 +32,23 @@ if (process.env.NODE_ENV === 'production') {
   if (!blobToken) throw new Error('BLOB_READ_WRITE_TOKEN is required in production.')
 }
 
+// Origins the admin may be used from (CORS + CSRF): APP_ORIGIN, any extra
+// domains in APP_EXTRA_ORIGINS (comma-separated, e.g. the *.vercel.app URL),
+// and localhost outside production.
+const extraOrigins = (process.env.APP_EXTRA_ORIGINS || '').split(',').map((value) => value.trim()).filter(Boolean)
+for (const origin of extraOrigins) {
+  if (new URL(origin).origin !== origin.replace(/\/$/, '')) throw new Error(`APP_EXTRA_ORIGINS entry "${origin}" must be an origin without a path.`)
+}
+const allowedOrigins = [...new Set([
+  appOrigin,
+  ...extraOrigins,
+  ...(process.env.NODE_ENV === 'production' ? [] : ['http://localhost:3000', 'http://127.0.0.1:3000']),
+].filter((origin): origin is string => Boolean(origin)).map((origin) => new URL(origin).origin))]
+
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || 'development-only-secret-replace-with-a-long-random-value',
-  serverURL: appOrigin,
+  // No serverURL: the admin then calls the API on whichever allowed origin it
+  // is opened from, instead of always on APP_ORIGIN (which breaks the cookie).
   admin: {
     user: Users.slug,
     importMap: { baseDir: dirname },
@@ -42,8 +56,8 @@ export default buildConfig({
   },
   routes: { admin: '/admin', api: '/api' },
   graphQL: { disable: true },
-  cors: appOrigin ? [appOrigin] : [],
-  csrf: appOrigin ? [appOrigin] : [],
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
   collections: [Users, Media, Projects, Experiences, GalleryItems, Posts],
   globals: [SiteSettings, Home, About, GalleryPage],
   editor: lexicalEditor(),
