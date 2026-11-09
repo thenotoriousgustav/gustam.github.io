@@ -45,7 +45,7 @@ export default function Tools() {
       <h2 id="tools-title" className={cn(sectionTitle, "mb-6 sm:mb-9")}>
         Tools I use
       </h2>
-      <ul className="flex flex-wrap items-center gap-x-[0.4em] gap-y-[0.35em] text-[clamp(24px,2.6vw,36px)] leading-[1.2] tracking-[-0.02em]">
+      <ul className="flex flex-wrap items-center gap-x-[0.4em] gap-y-[0.35em] text-[clamp(22px,1.95vw,32px)] leading-[1.2] tracking-[-0.02em]">
         {TOOLS.map((tool, index) => (
           <li key={tool.name} className="flex items-center gap-[0.4em]">
             <a

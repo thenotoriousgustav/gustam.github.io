@@ -64,10 +64,10 @@ function Cover({
     );
   }
 
-  // Phone screens are about 1:2.2; crop them to a 3:4 portrait from the top.
+  // Phone screens are about 1:2.2; crop them to a 2:3 portrait from the top.
   const tall = (image.height || 0) / (image.width || 1) > 1.4;
   return (
-    <div className={cn(tall && "aspect-[3/4]")}>
+    <div className={cn(tall && "aspect-[2/3]")}>
       <ProjectScreenshot
         src={image.url!}
         alt={image.alt || `${project.title} screenshot`}

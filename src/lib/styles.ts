@@ -12,7 +12,8 @@ export const pageTitle =
   "text-[clamp(56px,8vw,128px)] leading-none tracking-[-0.055em]";
 
 /** Section heading on the home and project pages. */
-export const sectionTitle = "text-[clamp(28px,3vw,40px)]";
+export const sectionTitle =
+  "font-serif text-[clamp(32px,3.4vw,48px)] leading-[1.1] font-normal tracking-[-0.02em]";
 
 /** Placeholder shown when a list or a picture is empty. */
 export const mediaFallback = "mb-7 rounded-2xl bg-inset p-8 text-soft";

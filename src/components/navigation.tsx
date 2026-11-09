@@ -7,7 +7,7 @@ import { shell } from "@/lib/styles";
 import { SocialIcon } from "@/components/social-icons";
 
 const NAV_LINKS = [
-  ["/", "Work"],
+  ["/", "Home"],
   ["/gallery", "Gallery"],
   ["/blog", "Blog"],
 ] as const;
