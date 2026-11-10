@@ -1,5 +1,6 @@
 import SelectedWork from '@/components/work/selected-work'
 import Tools from '@/components/work/tools'
+import GithubActivity from '@/components/work/github-activity'
 import AboutSection from '@/components/about-section'
 import { findDocs, findGlobal } from '@/lib/payload/server'
 import ContentUnavailable from '@/components/content-unavailable'
@@ -22,6 +23,7 @@ export default async function Home() {
   const label = 'mb-2 text-soft'
   // The footer's call to action is the email link from Site Settings.
   const email = (settings.socialLinks || []).find((link) => link.url.startsWith('mailto:'))
+  const github = (settings.socialLinks || []).find((link) => /^https:\/\/github\.com\//.test(link.url))
   return <div className={shell}>
     <section className="pt-10 pb-20 sm:pt-20 sm:pb-28" aria-labelledby="intro-title">
       <h1 id="intro-title" className="max-w-none font-serif text-[clamp(40px,6vw,92px)] leading-[1.05] font-normal tracking-[-0.02em]">{home.introTitle}</h1>
@@ -40,6 +42,7 @@ export default async function Home() {
     <SelectedWork projects={projects as unknown as Parameters<typeof SelectedWork>[0]['projects']} title={home.selectedWorkTitle} />
     {about && <AboutSection about={about} />}
     <Tools />
+    {github && <GithubActivity profileURL={github.url} />}
     <footer className="mt-20 pt-4 pb-8 sm:mt-[140px] sm:pb-12" aria-labelledby="contact-title">
       <h2 id="contact-title" className="font-serif text-[clamp(44px,7vw,112px)] leading-[1] font-normal tracking-[-0.02em]">{home.contactText}</h2>
       {email && <a href={email.url} className="mt-6 inline-flex min-h-11 items-center gap-2 text-[clamp(20px,2vw,28px)] text-primary underline underline-offset-[6px] hover:text-ink">

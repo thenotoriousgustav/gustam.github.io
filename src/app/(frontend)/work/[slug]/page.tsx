@@ -6,10 +6,11 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import { findDocs } from '@/lib/payload/server'
 import ProjectScreenshot from '@/components/work/project-screenshot'
 import ContentUnavailable from '@/components/content-unavailable'
+import { formatMonth } from '@/lib/format'
 import { cn } from '@/lib/utils'
 import { richText, sectionTitle, shell, textLink } from '@/lib/styles'
 
-type Project = { id: number; slug: string; title: string; displayDate: string; summary: string; externalURL?: string; description: Parameters<typeof RichText>[0]['data']; screenshots?: { id?: string; media?: { url?: string; width?: number; height?: number; alt?: string } }[] }
+type Project = { id: number; slug: string; title: string; date?: string | null; summary: string; externalURL?: string; description: Parameters<typeof RichText>[0]['data']; screenshots?: { id?: string; media?: { url?: string; width?: number; height?: number; alt?: string } }[] }
 async function getProject(slug: string): Promise<Project | null | undefined> {
   const projects = await findDocs('projects')
   if (!projects) return null
@@ -36,7 +37,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <h1 className="text-[clamp(44px,6.4vw,104px)] leading-none tracking-[-0.05em]">{project.title}</h1>
       <div>
         <p className="text-[clamp(18px,1.5vw,21px)] leading-[1.55]">{project.summary}</p>
-        <p className="mt-3 text-soft tabular-nums">{project.displayDate}</p>
+        {project.date && <p className="mt-3 text-soft tabular-nums">{formatMonth(project.date)}</p>}
         {project.externalURL && <a className={cn(textLink, 'mt-2 gap-2')} href={project.externalURL} target="_blank" rel="noreferrer">View project <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </header>

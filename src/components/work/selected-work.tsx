@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatMonth } from "@/lib/format";
 import ProjectScreenshot from "./project-screenshot";
 import ProjectMasonry from "./project-masonry";
 import { cn } from "@/lib/utils";
@@ -10,7 +11,7 @@ type Project = {
   title: string;
   slug: string;
   summary?: string;
-  displayDate?: string;
+  date?: string | null;
   screenshots?: { id?: string; media?: Media }[];
 };
 
@@ -126,9 +127,9 @@ export default function SelectedWork({
                   <h3 className="mt-3 text-[18px] leading-[1.25] tracking-[-0.02em] transition-colors group-hover:text-primary">
                     {project.title}
                   </h3>
-                  {project.displayDate && (
+                  {project.date && (
                     <p className="mt-0.5 text-[15px] text-soft tabular-nums">
-                      {project.displayDate}
+                      {formatMonth(project.date)}
                     </p>
                   )}
                 </Link>

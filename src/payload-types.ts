@@ -188,7 +188,7 @@ export interface Media {
   focalY?: number | null;
 }
 /**
- * Project URLs are permanent once created.
+ * Project URLs are permanent once created. The newest project is shown first.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
@@ -201,7 +201,11 @@ export interface Project {
    */
   slug: string;
   summary: string;
-  displayDate: string;
+  /**
+   * Month and year shown under the project title. Leave empty to show none.
+   */
+  date?: string | null;
+  displayDate?: string | null;
   description: {
     root: {
       type: string;
@@ -267,8 +271,11 @@ export interface Experience {
 export interface GalleryItem {
   id: number;
   caption: string;
-  alt: string;
+  /**
+   * Alt text, image/video and the video poster come from this media item.
+   */
   media: number | Media;
+  alt: string;
   kind: 'image' | 'video';
   poster?: (number | null) | Media;
   order: number;
@@ -457,6 +464,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   summary?: T;
+  date?: T;
   displayDate?: T;
   description?: T;
   screenshots?:
@@ -493,8 +501,8 @@ export interface ExperiencesSelect<T extends boolean = true> {
  */
 export interface GalleryItemsSelect<T extends boolean = true> {
   caption?: T;
-  alt?: T;
   media?: T;
+  alt?: T;
   kind?: T;
   poster?: T;
   order?: T;

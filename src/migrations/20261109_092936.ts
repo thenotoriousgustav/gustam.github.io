@@ -1,7 +1,7 @@
 import { randomBytes } from 'node:crypto'
 import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
 
-export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
+export async function up({ db }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
    CREATE TABLE "about_education" (
   	"_order" integer NOT NULL,
@@ -33,7 +33,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   }
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
+export async function down({ db }: MigrateDownArgs): Promise<void> {
   await db.execute(sql`
    DROP TABLE "about_education" CASCADE;`)
 }

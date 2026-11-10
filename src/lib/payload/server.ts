@@ -21,8 +21,8 @@ export function findDocs(collection: 'gallery-items'): Promise<GalleryItem[] | n
 export async function findDocs(collection: 'projects' | 'experiences' | 'gallery-items') {
   try {
     const payload = await client()
-    // The gallery shows the newest upload first; projects and experiences keep their manual order.
-    const sort = collection === 'gallery-items' ? ['-createdAt', '-id'] : ['order', 'id']
+    // Gallery and projects: newest first (top left of the wall). Experiences keep their manual order.
+    const sort = collection === 'experiences' ? ['order', 'id'] : ['-createdAt', '-id']
     const result = await payload.find({ collection, depth: 2, pagination: false, sort, overrideAccess: false })
     return result.docs
   } catch (error) {
