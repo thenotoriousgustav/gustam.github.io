@@ -13,11 +13,10 @@ Next.js portfolio with Payload CMS 3 at `/admin`, PostgreSQL on Neon and public 
 1. Provision a development Neon database and a development Vercel Blob store. Copy `.env.example` to `.env.local` and set their credentials, a random `PAYLOAD_SECRET` (32+ characters), and `APP_ORIGIN=http://localhost:3000`.
 2. Install packages: `pnpm install`.
 3. Apply the committed database schema: `pnpm migrate`.
-4. Import the existing 7 projects, 5 experiences, 21 Gallery entries, media, and page copy: `pnpm seed`. The command is manual, requires Blob storage access, is idempotent, and skips existing edited content.
-5. Create the initial manager account once: set `ADMIN_EMAIL` and a unique `ADMIN_PASSWORD` (at least 16 characters) in the process environment, then run `pnpm bootstrap-admin`. Account creation through the public API is disabled. Remove the temporary credentials from the shell afterward.
-6. Run `pnpm dev`, sign in at `/admin`, and update content.
+4. Create the initial manager account once: set `ADMIN_EMAIL` and a unique `ADMIN_PASSWORD` (at least 16 characters) in the process environment, then run `pnpm bootstrap-admin`. Account creation through the public API is disabled. Remove the temporary credentials from the shell afterward.
+5. Run `pnpm dev`, sign in at `/admin`, and update content.
 
-Seed the production database only after backing it up and verifying the preview import. Do not share production secrets or database dumps in chat.
+Payload is the only content source: restore a lost database from a Neon backup branch and its files from the Vercel Blob store. Do not share production secrets or database dumps in chat.
 
 ## Schema and deployment commands
 
@@ -25,7 +24,6 @@ Seed the production database only after backing it up and verifying the preview 
 - `pnpm generate:importmap` — regenerate the Payload admin import map.
 - `pnpm migrate:create` — create a new migration after a schema change.
 - `pnpm migrate` — apply committed migrations. Run as a controlled release step before deploying the code that uses a new schema; do not run migrations during every build/startup.
-- `pnpm seed` — one-time/manual legacy content import.
 - `pnpm bootstrap-admin` — create the first manager only.
 
 For Vercel, set production-only Neon/Blob credentials and `APP_ORIGIN` in project environment settings. Use separate preview credentials/stores. In the deployment release process, take a Neon backup/branch, run `pnpm migrate` against the target database, deploy, and verify `/admin` plus the public routes. Uploaded files are public by URL; do not store private or sensitive media in this collection. Large browser uploads use Payload's authenticated Vercel Blob client-upload flow rather than passing the file through a Vercel function.

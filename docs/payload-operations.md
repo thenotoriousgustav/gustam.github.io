@@ -20,17 +20,7 @@ If migration fails, stop the release, preserve the database state/logs, and rest
 
 The initial import is complete. All 41 original photo/video files were verified in the public Vercel Blob store before the local copies were removed from `public/`. Of these, 36 are referenced by CMS Media records; five previously unused originals are archived under `portfolio/` in the same store.
 
-`pnpm seed` retains the source text in `src/data` and reuses existing Media records by stable `sourceKey`. It requires `DATABASE_URL` and `BLOB_READ_WRITE_TOKEN`, skips existing content, and does not overwrite editor changes. A fresh database needs the Media records and files restored from a database backup and Vercel Blob first; the seed cannot recreate missing originals from the repository. Do not delete the Blob store when cleaning up local assets.
-
-The legacy inventory project has no available screenshots and keeps its existing fallback. The seed does not manufacture missing images or restore the dead Spotify deployment link. Frontend routes read CMS content, never the retained source arrays.
-
-## CV content refresh
-
-`src/data/profile.ts`, `src/data/experience.ts`, and `src/data/work.ts` retain the approved CV content. `pnpm exec tsx scripts/update-portfolio.ts --apply` deliberately updates the matching profile globals and CV entries using stable project slugs and experience source keys. Test it against an isolated branch and create a production backup before running it: unlike the initial seed, it intentionally replaces approved text and ordering.
-
-The update is transactional, keeps existing project URLs, screenshots, gallery, portrait, and social links, and does not publish the CV’s phone number. Older projects and the GSTM Studio role remain rather than being deleted because they were absent from the CV. Silamar and Evaluation CAT have no supplied screenshots; upload real ones through Payload Admin. Silamar has no supplied public URL. New project dates use descriptive labels rather than invented dates.
-
-The blog uses the Posts collection: drafts are private, and setting `status` to Published exposes a post immediately. `publishedAt` is a display/sort date, not scheduling. Public pages are `/blog` and `/blog/[slug]`. `TEST_DATABASE_URL=... pnpm exec tsx scripts/test-blog.ts` runs write/read/access tests only against an isolated database; it refuses the currently configured production endpoint. Schema push is disabled in all environments. Existing `dev` migration history must be reconciled before running the full migration chain on this production database; do not approve Payload’s development-data reset prompt.
+The one-time import scripts (`pnpm seed`, `scripts/update-portfolio.ts`) and their `src/data` source files were removed on 2026-11-10 together with the `sourceKey` fields they used; Payload is now the only content source. They remain in git history.
 
 ## Manager account and recovery
 

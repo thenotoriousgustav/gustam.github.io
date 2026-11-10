@@ -30,7 +30,6 @@ export const Media: CollectionConfig = {
     { name: 'alt', type: 'text', required: true, maxLength: 300 },
     { name: 'kind', type: 'select', required: true, defaultValue: 'image', options: [{ label: 'Image', value: 'image' }, { label: 'Video', value: 'video' }] },
     { name: 'poster', type: 'relationship', relationTo: 'media', admin: { condition: (_, siblingData) => siblingData?.kind === 'video' } },
-    { name: 'sourceKey', type: 'text', unique: true, admin: { hidden: true } },
   ],
   endpoints: [],
   admin: { description: 'Public portfolio files. Uploaded media is accessible to anyone with its URL.' },

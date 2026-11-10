@@ -14,7 +14,6 @@
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload --use-swc generate:importmap",
     "migrate": "node scripts/neon-migrate.mjs migrate",
     "migrate:create": "node scripts/neon-migrate.mjs migrate:create",
-    "seed": "tsx scripts/seed.ts",
     "bootstrap-admin": "tsx scripts/bootstrap-admin.ts",
     "test:access": "tsx scripts/test-access.ts"
   },

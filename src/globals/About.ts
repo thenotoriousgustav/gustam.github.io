@@ -13,8 +13,7 @@ export const About: GlobalConfig = {
   fields: [
     { name: 'title', type: 'text', required: true }, { name: 'portrait', type: 'relationship', relationTo: 'media' },
     { name: 'introduction', type: 'richText', required: true },
-    { name: 'exploringTitle', label: 'Education heading', type: 'text', required: true }, // Replaced by `education`; kept hidden so its column (and the original text) stays in the database.
-    { name: 'exploring', label: 'Education (old text)', type: 'textarea', required: true, admin: { hidden: true } },
+    { name: 'exploringTitle', label: 'Education heading', type: 'text', required: true },
     { name: 'education', label: 'Education', labels: { singular: 'School', plural: 'Schools' }, type: 'array', admin: { description: 'Newest school first.' }, fields: [
       { name: 'school', type: 'text', required: true, admin: { placeholder: 'Universitas Gunadarma' } },
       { name: 'programme', type: 'text', required: true, admin: { placeholder: 'Bachelor of Information Systems' } },

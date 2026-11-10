@@ -172,7 +172,6 @@ export interface Media {
   alt: string;
   kind: 'image' | 'video';
   poster?: (number | null) | Media;
-  sourceKey?: string | null;
   prefix?: string | null;
   _objectKey?: string | null;
   updatedAt: string;
@@ -205,7 +204,6 @@ export interface Project {
    * Month and year shown under the project title. Leave empty to show none.
    */
   date?: string | null;
-  displayDate?: string | null;
   description: {
     root: {
       type: string;
@@ -228,8 +226,6 @@ export interface Project {
       }[]
     | null;
   externalURL?: string | null;
-  order: number;
-  sourceKey?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -241,6 +237,9 @@ export interface Experience {
   id: number;
   company: string;
   position: string;
+  /**
+   * MM.YYYY. The site lists experiences newest start date first.
+   */
   startDate: string;
   endDate: string;
   description: {
@@ -259,8 +258,6 @@ export interface Experience {
     [k: string]: unknown;
   };
   externalURL?: string | null;
-  order: number;
-  sourceKey?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -278,8 +275,6 @@ export interface GalleryItem {
   alt: string;
   kind: 'image' | 'video';
   poster?: (number | null) | Media;
-  order: number;
-  sourceKey?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -441,7 +436,6 @@ export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   kind?: T;
   poster?: T;
-  sourceKey?: T;
   prefix?: T;
   _objectKey?: T;
   updatedAt?: T;
@@ -465,7 +459,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   slug?: T;
   summary?: T;
   date?: T;
-  displayDate?: T;
   description?: T;
   screenshots?:
     | T
@@ -474,8 +467,6 @@ export interface ProjectsSelect<T extends boolean = true> {
         id?: T;
       };
   externalURL?: T;
-  order?: T;
-  sourceKey?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -490,8 +481,6 @@ export interface ExperiencesSelect<T extends boolean = true> {
   endDate?: T;
   description?: T;
   externalURL?: T;
-  order?: T;
-  sourceKey?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -505,8 +494,6 @@ export interface GalleryItemsSelect<T extends boolean = true> {
   alt?: T;
   kind?: T;
   poster?: T;
-  order?: T;
-  sourceKey?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -622,7 +609,6 @@ export interface About {
     [k: string]: unknown;
   };
   exploringTitle: string;
-  exploring: string;
   /**
    * Newest school first.
    */
@@ -703,7 +689,6 @@ export interface AboutSelect<T extends boolean = true> {
   portrait?: T;
   introduction?: T;
   exploringTitle?: T;
-  exploring?: T;
   education?:
     | T
     | {

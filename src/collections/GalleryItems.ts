@@ -29,7 +29,5 @@ export const GalleryItems: CollectionConfig = {
     { name: 'alt', type: 'text', required: true, maxLength: 300, admin: { hidden: true } },
     { name: 'kind', type: 'select', required: true, options: [{ label: 'Image', value: 'image' }, { label: 'Video', value: 'video' }], admin: { hidden: true } },
     { name: 'poster', type: 'relationship', relationTo: 'media', admin: { hidden: true } },
-    // Unused since the gallery sorts by upload date; kept (hidden) so no migration is needed to drop the column.
-    { name: 'order', type: 'number', required: true, defaultValue: 0, admin: { hidden: true } }, { name: 'sourceKey', type: 'text', unique: true, admin: { hidden: true } },
   ],
 }

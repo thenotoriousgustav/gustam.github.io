@@ -23,13 +23,8 @@ export const Projects: CollectionConfig = {
     } },
     { name: 'summary', type: 'textarea', required: true, maxLength: 400 },
     { name: 'date', label: 'Date', type: 'date', admin: { date: { pickerAppearance: 'monthOnly', displayFormat: 'MM.yyyy' }, description: 'Month and year shown under the project title. Leave empty to show none.' } },
-    // Replaced by `date`; kept hidden so the original text stays in the database.
-    { name: 'displayDate', type: 'text', maxLength: 30, admin: { hidden: true } },
     { name: 'description', type: 'richText', required: true },
     { name: 'screenshots', type: 'array', fields: [{ name: 'media', type: 'relationship', relationTo: 'media', required: true }] },
     { name: 'externalURL', type: 'text', validate: (value: unknown) => value == null || (typeof value === 'string' && safeURL(value)) || 'Use an http or https URL' },
-    // Unused since projects sort by creation time; kept (hidden) so no migration is needed to drop the column.
-    { name: 'order', type: 'number', required: true, defaultValue: 0, admin: { hidden: true } },
-    { name: 'sourceKey', type: 'text', unique: true, admin: { hidden: true } },
   ],
 }
