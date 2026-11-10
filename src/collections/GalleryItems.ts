@@ -24,7 +24,7 @@ export const GalleryItems: CollectionConfig = {
   },
   fields: [
     { name: 'caption', type: 'text', required: true },
-    { name: 'media', type: 'relationship', relationTo: 'media', required: true, admin: { description: 'Alt text, image/video and the video poster come from this media item.' } },
+    { name: 'media', type: 'upload', relationTo: 'media', required: true, admin: { description: 'Alt text, image/video and the video poster come from this media item.' } },
     // Copied from the media item by the beforeValidate hook; hidden so they are edited in one place.
     { name: 'alt', type: 'text', required: true, maxLength: 300, admin: { hidden: true } },
     { name: 'kind', type: 'select', required: true, options: [{ label: 'Image', value: 'image' }, { label: 'Video', value: 'video' }], admin: { hidden: true } },
