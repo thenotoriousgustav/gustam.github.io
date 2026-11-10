@@ -238,10 +238,13 @@ export interface Experience {
   company: string;
   position: string;
   /**
-   * MM.YYYY. The site lists experiences newest start date first.
+   * The site lists experiences newest start date first.
    */
   startDate: string;
-  endDate: string;
+  /**
+   * Leave empty while you still work here (shown as Present).
+   */
+  endDate?: string | null;
   description: {
     root: {
       type: string;

@@ -18,7 +18,7 @@ export default async function Home() {
   // "Currently": the role still running; "Previously": the next three roles.
   const role = (item: { position: string }) => item.position.split(' · ')[0]
   const company = (item: { company: string }) => item.company.replace(/^PT\.\s*/, '').replace(/ Tbk\b/, '').replace(' Republik Indonesia', '')
-  const current = experiences.find((item) => /present/i.test(item.endDate))
+  const current = experiences.find((item) => !item.endDate) // no end date = still working there
   const previous = experiences.filter((item) => item !== current).slice(0, 3)
   const label = 'mb-2 text-soft'
   // The footer's call to action is the email link from Site Settings.
