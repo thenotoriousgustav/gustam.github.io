@@ -44,6 +44,6 @@ export const PAPERS = [
     summary: "An online exam system that watches for participant switching, forbidden objects and talking during a test, using face detection and recognition, object detection and voice activity detection in the browser (TensorFlow.js, face-api.js). Built with Next.js, NestJS and PostgreSQL.",
     institution: "Universitas Gunadarma, Information Systems",
     supervisor: "Agry Alfiah, ST., MMSI.",
-    project: { title: "Evaluation CAT", slug: "evaluation-cat" },
+    project: { title: "Computer Assisted Test", slug: "computer-assisted-test" },
   },
 ];
