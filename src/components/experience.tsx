@@ -16,10 +16,10 @@ const split = (position: string) => {
 }
 
 /**
- * Work history for interviews: the newest `featured` roles with what was done and the projects built there,
+ * Work history for interviews: the newest `featured` roles (the three latest) with what was done and the projects built there,
  * older roles as one line each. Newest first (sorted by start date in the query).
  */
-export default function Experience({ roles, featured = 4 }: { roles: Role[]; featured?: number }) {
+export default function Experience({ roles, featured = 3 }: { roles: Role[]; featured?: number }) {
   return <section id="experience" className="mt-20 scroll-mt-8 sm:mt-[140px]" aria-labelledby="experience-title">
     <div className="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 sm:mb-9">
       <h2 id="experience-title" className={sectionTitle}>Experience</h2>
