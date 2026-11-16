@@ -1,8 +1,14 @@
+import type { Metadata } from 'next'
 import GalleryMedia from '@/components/gallery-item'
 import { findDocs, findGlobal } from '@/lib/payload/server'
 import ContentUnavailable from '@/components/content-unavailable'
 import { cn } from '@/lib/utils'
 import { mediaFallback, pageTitle, shell } from '@/lib/styles'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await findGlobal('gallery-page')
+  return { title: `${page?.title || 'Gallery'} | Gustam Rheza`, description: page?.introduction?.slice(0, 160) }
+}
 
 export default async function GalleryPage() {
   const [page, items] = await Promise.all([findGlobal('gallery-page'), findDocs('gallery-items')])

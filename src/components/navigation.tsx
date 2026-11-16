@@ -15,10 +15,13 @@ const NAV_LINKS = [
 export default function Navigation({
   wordmark = "Gustam Rheza.",
   socialLinks = [],
+  showBlog = true,
 }: {
   wordmark?: string;
   /** Site settings social links, shown as icon buttons on the right. */
   socialLinks?: { label: string; url: string }[];
+  /** Hide Blog until there is a published post, so the menu never opens an empty page. */
+  showBlog?: boolean;
 }) {
   const pathname = usePathname();
   return (
@@ -67,7 +70,7 @@ export default function Navigation({
         aria-label="Main navigation"
       >
         <div className="pointer-events-auto inline-flex items-center gap-px rounded-full bg-ink p-[3px] sm:gap-0.5 sm:p-1">
-          {NAV_LINKS.map(([href, label]) => {
+          {NAV_LINKS.filter(([href]) => showBlog || href !== "/blog").map(([href, label]) => {
             const isActive =
               href === "/"
                 ? pathname === "/" || pathname.startsWith("/work")
