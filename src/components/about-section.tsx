@@ -24,7 +24,7 @@ function Group({ label, entries, fallback }: { label: string; entries: Entry[] |
   return <div>
     <h3 className="mb-4 text-[17px] font-[550] tracking-normal">{label}</h3>
     {entries
-      ? <dl className="grid gap-4 sm:gap-3.5">{entries.map((entry) => <div key={entry.key + entry.title} className="grid grid-cols-1 gap-0.5 sm:grid-cols-[176px_minmax(0,1fr)] sm:gap-6">
+      ? <dl className="grid gap-4 sm:gap-3.5">{entries.map((entry, index) => <div key={`${entry.key}-${index}`} className="grid grid-cols-1 gap-0.5 sm:grid-cols-[176px_minmax(0,1fr)] sm:gap-6">
           <dt className="text-soft tabular-nums">{entry.key}</dt>
           <dd>{entry.title}{entry.detail && <span className="block text-soft">{entry.detail}</span>}</dd>
         </div>)}</dl>
@@ -35,7 +35,6 @@ function Group({ label, entries, fallback }: { label: string; entries: Entry[] |
 /** The About content (Payload global "about"), shown on the home page at #about. */
 export default function AboutSection({ about }: { about: About }) {
   const portrait = about.portrait && typeof about.portrait === 'object' ? about.portrait : undefined
-  const skills = (about.favorites || []).map((group) => ({ key: group.category, title: group.items }))
   return <section id="about" className="mt-20 scroll-mt-8 sm:mt-[140px]" aria-labelledby="about-title">
     <h2 id="about-title" className={cn(sectionTitle, 'mb-6 sm:mb-9')}>About</h2>
 
@@ -51,7 +50,6 @@ export default function AboutSection({ about }: { about: About }) {
         </div>
         <div className="mt-14 grid gap-12 sm:mt-16">
           {about.education?.length ? <Group label={about.exploringTitle} entries={about.education.map((school) => ({ key: school.period, title: school.school, detail: school.programme }))} /> : null}
-          {skills.length > 0 && <Group label={about.favoritesTitle} entries={skills} />}
           <Group label={about.interestsTitle} entries={parsePairs(about.interests)} fallback={about.interests} />
         </div>
       </div>

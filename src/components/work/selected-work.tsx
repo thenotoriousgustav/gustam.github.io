@@ -66,9 +66,13 @@ function Cover({
   }
 
   // Phone screens are about 1:2.2; crop them to a 2:3 portrait from the top.
-  const tall = (image.height || 0) / (image.width || 1) > 1.4;
+  const ratio = (image.height || 0) / (image.width || 1);
+  const tall = ratio > 1.4;
+  // Wide desktop screenshots would be a thin strip in a column; crop them to 4:3 from the top left.
+  const wide = ratio < 0.6;
+  const cropped = tall || wide;
   return (
-    <div className={cn(tall && "aspect-[2/3]")}>
+    <div className={cn(tall && "aspect-[2/3]", wide && "aspect-[4/3]")}>
       <ProjectScreenshot
         src={image.url!}
         alt={image.alt || `${project.title} screenshot`}
@@ -78,7 +82,9 @@ function Cover({
         sizes={SIZES}
         className={cn(
           "block w-full transition-transform duration-500 ease-soft group-hover:scale-[1.03] motion-reduce:group-hover:scale-100",
-          tall ? "h-full object-cover object-top" : "h-auto",
+          cropped ? "h-full object-cover" : "h-auto",
+          tall && "object-top",
+          wide && "object-left-top",
         )}
       />
     </div>

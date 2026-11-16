@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, type FocusEvent, type MouseEvent } from "react";
-import { TOOLS } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import { sectionTitle } from "@/lib/styles";
 
@@ -20,7 +19,10 @@ function place(x: number, y: number) {
   return { left, top };
 }
 
-export default function Tools() {
+type Tool = { name: string; url: string; icon: string; preview: string };
+
+/** A large inline list of tools with a floating screenshot preview on hover ("Tools I use", "AI I use"). */
+export default function Tools({ id, title, items }: { id: string; title: string; items: Tool[] }) {
   const [active, setActive] = useState<string | null>(null);
   // The card (and its screenshots) mounts on first hover, so it costs nothing until used.
   const [armed, setArmed] = useState(false);
@@ -41,12 +43,12 @@ export default function Tools() {
   const hide = () => setActive(null);
 
   return (
-    <section className="mt-20 sm:mt-[140px]" aria-labelledby="tools-title">
-      <h2 id="tools-title" className={cn(sectionTitle, "mb-6 sm:mb-9")}>
-        Tools I use
+    <section className="mt-20 sm:mt-[140px]" aria-labelledby={`${id}-title`}>
+      <h2 id={`${id}-title`} className={cn(sectionTitle, "mb-6 sm:mb-9")}>
+        {title}
       </h2>
       <ul className="flex flex-wrap items-center gap-x-[0.4em] gap-y-[0.35em] text-[clamp(22px,1.95vw,32px)] leading-[1.2] tracking-[-0.02em]">
-        {TOOLS.map((tool, index) => (
+        {items.map((tool, index) => (
           <li key={tool.name} className="flex items-center gap-[0.4em]">
             <a
               href={tool.url}
@@ -68,7 +70,7 @@ export default function Tools() {
               {tool.name}
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
-            {index < TOOLS.length - 1 && (
+            {index < items.length - 1 && (
               <span aria-hidden="true" className="text-soft">
                 ·
               </span>
@@ -90,7 +92,7 @@ export default function Tools() {
               active ? "scale-100 opacity-100" : "scale-95 opacity-0",
             )}
           >
-            {TOOLS.map((tool) => (
+            {items.map((tool) => (
               <Image
                 key={tool.name}
                 src={tool.preview}
