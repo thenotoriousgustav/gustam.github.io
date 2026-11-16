@@ -187,7 +187,7 @@ export interface Media {
   focalY?: number | null;
 }
 /**
- * Project URLs are permanent once created. The newest project is shown first.
+ * Project URLs are permanent once created. The site lists projects by Date, newest first; projects without a date come first.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
