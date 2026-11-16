@@ -22,7 +22,7 @@ export default function Research() {
               <span className="block font-normal text-soft tabular-nums">{paper.year}</span>
             </p>
             <div className="lg:col-span-9">
-              <h3 lang="id" className="max-w-[46ch] font-serif text-[clamp(22px,2vw,28px)] leading-[1.25] font-normal tracking-[-0.01em] text-balance">
+              <h3 lang="id" className="max-w-[46ch] font-serif text-[20px] sm:text-[24px] lg:text-[28px] leading-[1.25] font-normal tracking-[-0.01em] text-balance">
                 {paper.title}
               </h3>
               <p className="mt-2 max-w-[64ch] text-[17px] leading-[1.55] text-soft">{paper.english}</p>

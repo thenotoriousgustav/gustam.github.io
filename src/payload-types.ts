@@ -201,6 +201,14 @@ export interface Project {
   slug: string;
   summary: string;
   /**
+   * Your role and where, e.g. "Front-end developer, Ministry of Finance" or "Personal project". Shown under the summary.
+   */
+  role?: string | null;
+  /**
+   * Main technologies, separated by commas, e.g. "Next.js, NestJS, PostgreSQL".
+   */
+  stack?: string | null;
+  /**
    * Month and year shown under the project title. Leave empty to show none.
    */
   date?: string | null;
@@ -461,6 +469,8 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   summary?: T;
+  role?: T;
+  stack?: T;
   date?: T;
   description?: T;
   screenshots?:

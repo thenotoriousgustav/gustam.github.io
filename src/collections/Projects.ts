@@ -22,6 +22,8 @@ export const Projects: CollectionConfig = {
       beforeChange: [({ value, operation, originalDoc }) => { if (operation === 'update' && value !== originalDoc?.slug) throw new Error('Project slugs cannot be changed after creation'); if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) throw new Error('Use lowercase letters, numbers and hyphens'); return value }],
     } },
     { name: 'summary', type: 'textarea', required: true, maxLength: 400 },
+    { name: 'role', type: 'text', maxLength: 120, admin: { description: 'Your role and where, e.g. "Front-end developer, Ministry of Finance" or "Personal project". Shown under the summary.' } },
+    { name: 'stack', type: 'text', maxLength: 200, admin: { description: 'Main technologies, separated by commas, e.g. "Next.js, NestJS, PostgreSQL".' } },
     { name: 'date', label: 'Date', type: 'date', admin: { date: { pickerAppearance: 'monthOnly', displayFormat: 'MM.yyyy' }, description: 'Month and year shown under the project title. Leave empty to show none.' } },
     { name: 'description', type: 'richText', required: true },
     { name: 'screenshots', type: 'array', fields: [{ name: 'media', type: 'relationship', relationTo: 'media', required: true }] },

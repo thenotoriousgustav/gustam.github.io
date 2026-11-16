@@ -54,6 +54,10 @@
     box-sizing: border-box;
     border-color: var(--inset);
   }
+  /* Keep keyboard focus and #anchors clear of the fixed bottom dock. */
+  html {
+    scroll-padding-bottom: 120px;
+  }
   body {
     margin: 0;
     padding-bottom: 110px;

@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { formatMonth } from "@/lib/format";
 import ProjectScreenshot from "./project-screenshot";
 import ProjectMasonry from "./project-masonry";
 import { cn } from "@/lib/utils";
-import { mediaFallback, sectionTitle } from "@/lib/styles";
+import { mediaFallback, sectionTitle, textLink } from "@/lib/styles";
 
 type Media = { url?: string; width?: number; height?: number; alt?: string };
 type Project = {
@@ -91,26 +92,40 @@ function Cover({
   );
 }
 
+/**
+ * The work grid. On the home page `limit` shows the newest few and links to /work;
+ * on /work the page has its own heading, so `showHeading` is off.
+ */
 export default function SelectedWork({
-  projects,
+  projects: allProjects,
   title = "Selected work",
+  limit,
+  showHeading = true,
 }: {
   projects: Project[];
   title?: string;
+  limit?: number;
+  showHeading?: boolean;
 }) {
+  const projects = limit ? allProjects.slice(0, limit) : allProjects;
+  const more = allProjects.length - projects.length;
+  // Under the section's h2 the cards are h3; on /work (no section heading) they sit right under the page h1.
+  const Title = showHeading ? "h3" : "h2";
   let posterCount = 0;
   return (
-    <section id="selected-work" aria-labelledby="selected-work-title">
-      <div className="mb-6 flex items-baseline justify-between gap-6 sm:mb-8">
-        <h2 id="selected-work-title" className={sectionTitle}>
-          {title}
-        </h2>
-        {projects.length > 0 && (
-          <p className="shrink-0 text-soft tabular-nums">
-            {projects.length} projects
-          </p>
-        )}
-      </div>
+    <section id="selected-work" aria-labelledby={showHeading ? "selected-work-title" : undefined} aria-label={showHeading ? undefined : "Projects"}>
+      {showHeading && (
+        <div className="mb-6 flex items-baseline justify-between gap-6 sm:mb-8">
+          <h2 id="selected-work-title" className={sectionTitle}>
+            {title}
+          </h2>
+          {allProjects.length > 0 && (
+            <Link className={cn(textLink, "shrink-0 gap-1.5")} href="/work">
+              All {allProjects.length} projects <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          )}
+        </div>
+      )}
       {projects.length === 0 ? (
         <p className={mediaFallback}>Projects will appear here soon.</p>
       ) : (
@@ -130,9 +145,9 @@ export default function SelectedWork({
                       priority={projectIndex < 4}
                     />
                   </div>
-                  <h3 className="mt-3 text-[18px] leading-[1.25] tracking-[-0.02em] transition-colors group-hover:text-primary">
+                  <Title className="mt-3 text-[18px] leading-[1.25] tracking-[-0.02em] transition-colors group-hover:text-primary">
                     {project.title}
-                  </h3>
+                  </Title>
                   {project.date && (
                     <p className="mt-0.5 text-[15px] text-soft tabular-nums">
                       {formatMonth(project.date)}
@@ -143,6 +158,11 @@ export default function SelectedWork({
             );
           })}
         </ProjectMasonry>
+      )}
+      {more > 0 && (
+        <Link className={cn(textLink, "mt-8 gap-1.5 text-[17px]")} href="/work">
+          See all {allProjects.length} projects <ArrowRight size={18} aria-hidden="true" />
+        </Link>
       )}
     </section>
   );

@@ -21,8 +21,11 @@ function place(x: number, y: number) {
 
 type Tool = { name: string; url: string; icon: string; preview: string };
 
-/** A large inline list of tools with a floating screenshot preview on hover ("Tools I use", "AI I use"). */
-export default function Tools({ id, title, items }: { id: string; title: string; items: Tool[] }) {
+type Group = { label: string; items: Tool[] };
+
+/** Large inline lists of tools, one per group, with a floating screenshot preview on hover. */
+export default function Tools({ id, title, groups }: { id: string; title: string; groups: Group[] }) {
+  const all = groups.flatMap((group) => group.items);
   const [active, setActive] = useState<string | null>(null);
   // The card (and its screenshots) mounts on first hover, so it costs nothing until used.
   const [armed, setArmed] = useState(false);
@@ -47,37 +50,44 @@ export default function Tools({ id, title, items }: { id: string; title: string;
       <h2 id={`${id}-title`} className={cn(sectionTitle, "mb-6 sm:mb-9")}>
         {title}
       </h2>
-      <ul className="flex flex-wrap items-center gap-x-[0.4em] gap-y-[0.35em] text-[clamp(22px,1.95vw,32px)] leading-[1.2] tracking-[-0.02em]">
-        {items.map((tool, index) => (
-          <li key={tool.name} className="flex items-center gap-[0.4em]">
-            <a
-              href={tool.url}
-              target="_blank"
-              rel="noreferrer"
-              onMouseEnter={show(tool.name)}
-              onMouseMove={follow}
-              onMouseLeave={hide}
-              onFocus={focus(tool.name)}
-              onBlur={hide}
-              className={cn(
-                "inline-flex items-center gap-[0.35em] rounded-lg transition-colors hover:text-ink focus-visible:text-ink",
-                active === tool.name ? "text-ink" : "text-soft",
-              )}
-            >
-              <span className="grid size-[1.2em] shrink-0 place-items-center overflow-hidden rounded-[0.3em] bg-surface">
-                <Image src={tool.icon} alt="" width={64} height={64} unoptimized className="size-[0.85em] object-contain" />
-              </span>
-              {tool.name}
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-            {index < items.length - 1 && (
-              <span aria-hidden="true" className="text-soft">
-                ·
-              </span>
-            )}
-          </li>
+      <div className="grid gap-8 sm:gap-10">
+        {groups.map((group) => (
+          <div key={group.label}>
+            <h3 className="mb-3 text-[17px] font-[550] text-soft">{group.label}</h3>
+          <ul className="flex flex-wrap items-center gap-x-[0.4em] gap-y-[0.35em] text-[clamp(22px,1.95vw,32px)] leading-[1.2] tracking-[-0.02em]">
+            {group.items.map((tool, index) => (
+              <li key={tool.name} className="flex items-center gap-[0.4em]">
+                <a
+                  href={tool.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  onMouseEnter={show(tool.name)}
+                  onMouseMove={follow}
+                  onMouseLeave={hide}
+                  onFocus={focus(tool.name)}
+                  onBlur={hide}
+                  className={cn(
+                    "inline-flex items-center gap-[0.35em] rounded-lg transition-colors hover:text-ink focus-visible:text-ink",
+                    active === tool.name ? "text-ink" : "text-soft",
+                  )}
+                >
+                  <span className="grid size-[1.2em] shrink-0 place-items-center overflow-hidden rounded-[0.3em] bg-surface">
+                    <Image src={tool.icon} alt="" width={64} height={64} unoptimized className="size-[0.85em] object-contain" />
+                  </span>
+                  {tool.name}
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+                {index < group.items.length - 1 && (
+                  <span aria-hidden="true" className="text-soft">
+                    ·
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+          </div>
         ))}
-      </ul>
+      </div>
 
       {armed && (
         // Floating preview: mouse and keyboard only; on touch screens the names are plain links.
@@ -92,7 +102,7 @@ export default function Tools({ id, title, items }: { id: string; title: string;
               active ? "scale-100 opacity-100" : "scale-95 opacity-0",
             )}
           >
-            {items.map((tool) => (
+            {all.map((tool) => (
               <Image
                 key={tool.name}
                 src={tool.preview}

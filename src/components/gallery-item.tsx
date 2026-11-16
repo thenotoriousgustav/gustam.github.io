@@ -101,7 +101,7 @@ export default function GalleryMedia({ item, eager = false }: { item: Item; eage
     <DialogContent className="max-w-5xl" aria-describedby={undefined}><DialogTitle className="pr-12 leading-normal">{item.caption}</DialogTitle>
       {/* Opening the dialog is a click, so the browser allows playback with sound. */}
       <div className="flex min-h-0 items-center justify-center">{video ? videoFailed ? <p>This video cannot be played in your browser. Open the original video below.</p> : <video className={viewerMedia} src={src} poster={poster} controls autoPlay playsInline preload="metadata" onError={() => setVideoFailed(true)} aria-label={item.alt}>Your browser cannot play this video.</video> : <ViewerImage {...photo} />}</div>
-      <div className="flex justify-between gap-4 text-sm text-soft"><span>{video ? 'Video' : 'Photo'}</span><a className="text-primary underline underline-offset-4" href={src} target="_blank" rel="noreferrer">Open original<span className="sr-only"> (opens in a new tab)</span></a></div>
+      <div className="flex justify-between gap-4 text-[15px] text-soft"><span>{video ? 'Video' : 'Photo'}</span><a className="text-primary underline underline-offset-4" href={src} target="_blank" rel="noreferrer">Open original<span className="sr-only"> (opens in a new tab)</span></a></div>
     </DialogContent>
   </Dialog>
 }

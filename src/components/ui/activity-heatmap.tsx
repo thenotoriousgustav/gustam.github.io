@@ -277,6 +277,8 @@ function ActivityHeatmap({
                     <button
                       type="button"
                       aria-label={label}
+                      // Without a click action the cells are hover-only detail; keep ~365 of them out of the Tab order.
+                      tabIndex={onCellClick ? undefined : -1}
                       data-level={level}
                       data-date={toKey(day)}
                       onClick={onCellClick ? () => onCellClick(datum) : undefined}

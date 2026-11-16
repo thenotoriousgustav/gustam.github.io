@@ -45,7 +45,7 @@ export default async function BlogPage({ searchParams }: {
     </section> : <section className="grid grid-cols-1 gap-8 rounded-3xl bg-surface p-[clamp(28px,5vw,64px)] sm:grid-cols-2" aria-labelledby="blog-empty-title">
       <h2 id="blog-empty-title" className="max-w-[18ch] text-[clamp(28px,3vw,40px)]">Writing is on its way.</h2>
       <div><p className="max-w-[42ch]">No posts published yet. In the meantime, take a look at what I’ve been building.</p>
-        <Link className="mt-6 inline-flex min-h-12 items-center rounded-full bg-ink px-5 py-2.5 font-semibold text-canvas hover:bg-primary hover:text-primary-foreground active:scale-98 motion-reduce:active:scale-100" href="/#selected-work">Explore selected work</Link>
+        <Link className="mt-6 inline-flex min-h-12 items-center rounded-full bg-ink px-5 py-2.5 font-semibold text-canvas hover:bg-primary hover:text-primary-foreground active:scale-98 motion-reduce:active:scale-100" href="/work">Explore my work</Link>
       </div>
     </section>}
     <footer className="mt-[100px] flex flex-wrap items-center justify-between gap-6"><p>Gustam Rheza</p><Link className={textLink} href="/#about">More about me</Link></footer>

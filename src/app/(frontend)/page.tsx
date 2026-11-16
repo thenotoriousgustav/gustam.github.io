@@ -42,12 +42,11 @@ export default async function Home() {
         </div>}
       </div>
     </section>
-    <SelectedWork projects={projects as unknown as Parameters<typeof SelectedWork>[0]['projects']} title={home.selectedWorkTitle} />
+    <SelectedWork projects={projects as unknown as Parameters<typeof SelectedWork>[0]['projects']} title={home.selectedWorkTitle} limit={8} />
     {about && <AboutSection about={about} />}
     <Research />
     {about?.favorites?.length ? <Skills title={about.favoritesTitle} groups={about.favorites} /> : null}
-    <Tools id="tools" title="Tools I use" items={TOOLS} />
-    <Tools id="ai" title="AI I use" items={AI_TOOLS} />
+    <Tools id="tools" title="Tools I use" groups={[{ label: 'Development', items: TOOLS }, { label: 'AI', items: AI_TOOLS }]} />
     {github && <GithubActivity profileURL={github.url} />}
     <footer className="mt-20 pt-4 pb-8 sm:mt-[140px] sm:pb-12" aria-labelledby="contact-title">
       <h2 id="contact-title" className="font-serif text-[clamp(44px,7vw,112px)] leading-[1] font-normal tracking-[-0.02em]">{home.contactText}</h2>

@@ -10,12 +10,12 @@ export const TOOLS = [
   { name: "Git", url: "https://git-scm.com/", icon: "/tools/git.svg", preview: "/tools/git.jpg" },
   { name: "Jira", url: "https://www.atlassian.com/software/jira", icon: "/tools/jira.svg", preview: "/tools/jira.jpg" },
   { name: "pnpm", url: "https://pnpm.io/", icon: "/tools/pnpm.svg", preview: "/tools/pnpm.jpg" },
-  { name: "Claude Code", url: "https://www.claude.com/product/claude-code", icon: "/tools/claude-code.png", preview: "/tools/claude-code.jpg" },
 ];
 
 /** "AI I use" on the home page. `icon` and `preview` live in public/ai/ (800x500 homepage screenshots). */
 export const AI_TOOLS = [
   { name: "Claude", url: "https://claude.ai/", icon: "/ai/claude.svg", preview: "/ai/claude.jpg" },
+  { name: "Claude Code", url: "https://www.claude.com/product/claude-code", icon: "/tools/claude-code.png", preview: "/tools/claude-code.jpg" },
   { name: "ChatGPT", url: "https://chatgpt.com/", icon: "/ai/chatgpt.svg", preview: "/ai/chatgpt.jpg" },
   { name: "Antigravity", url: "https://antigravity.google/", icon: "/ai/antigravity.png", preview: "/ai/antigravity.jpg" },
   { name: "GitHub Copilot", url: "https://github.com/features/copilot", icon: "/ai/github-copilot.svg", preview: "/ai/github-copilot.jpg" },

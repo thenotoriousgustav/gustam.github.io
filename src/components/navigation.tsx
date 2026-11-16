@@ -8,6 +8,7 @@ import { SocialIcon } from "@/components/social-icons";
 
 const NAV_LINKS = [
   ["/", "Home"],
+  ["/work", "Work"],
   ["/gallery", "Gallery"],
   ["/blog", "Blog"],
 ] as const;
@@ -73,7 +74,7 @@ export default function Navigation({
           {NAV_LINKS.filter(([href]) => showBlog || href !== "/blog").map(([href, label]) => {
             const isActive =
               href === "/"
-                ? pathname === "/" || pathname.startsWith("/work")
+                ? pathname === "/"
                 : pathname === href || pathname.startsWith(`${href}/`);
             return (
               <Link

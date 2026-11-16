@@ -34,7 +34,7 @@ export default async function PostPage({ params }: Args) {
     <header className="py-10">
       <h1 className="text-[clamp(32px,4vw,52px)] wrap-anywhere">{post.title}</h1>
       <p className="mt-6 text-xl">{post.excerpt}</p>
-      <p className="mt-6 text-base text-soft">Gustam Rheza<span aria-hidden="true"> · </span>
+      <p className="mt-6 text-[15px] text-soft">Gustam Rheza<span aria-hidden="true"> · </span>
         <time dateTime={post.publishedAt}>{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</time>
       </p>
     </header>
