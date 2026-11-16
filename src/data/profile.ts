@@ -23,3 +23,27 @@ export const AI_TOOLS = [
   { name: "pen.dev", url: "https://pen.dev/", icon: "/ai/pen-dev.png", preview: "/ai/pen-dev.jpg" },
   { name: "NotebookLM", url: "https://notebooklm.google/", icon: "/ai/notebooklm.svg", preview: "/ai/notebooklm.jpg" },
 ];
+
+/** "Research & papers" on the home page, from each paper's cover and abstract. `project` links to the work page the research became. */
+export const PAPERS = [
+  {
+    type: "Undergraduate thesis",
+    year: 2025,
+    title: "Pengembangan Aplikasi Manajemen Lamaran Pekerjaan dengan Analisis Resume dan Pembuatan Surat Lamaran Otomatis Berbasis Artificial Intelligence",
+    english: "Development of a job application management app with AI-based resume analysis and automatic cover letter generation",
+    summary: "A web app that scores how well a resume matches a job description, lists missing and present keywords with concrete suggestions, drafts a tailored cover letter, and keeps every application in one tracker. Built with Next.js 15, Supabase and GPT-4o mini, and validated with black-box testing and user acceptance testing.",
+    institution: "Universitas Gunadarma, Information Systems",
+    supervisor: "Dr. Tristyanti Yusnitasari, SKom., MMSI.",
+    project: { title: "Silamar", slug: "silamar" },
+  },
+  {
+    type: "Scientific paper",
+    year: 2024,
+    title: "Implementasi Artificial Intelligence ke dalam Computer Assisted Test untuk Mendeteksi Kecurangan saat Ujian",
+    english: "Implementing artificial intelligence in a computer-assisted test to detect cheating during exams",
+    summary: "An online exam system that watches for participant switching, forbidden objects and talking during a test, using face detection and recognition, object detection and voice activity detection in the browser (TensorFlow.js, face-api.js). Built with Next.js, NestJS and PostgreSQL.",
+    institution: "Universitas Gunadarma, Information Systems",
+    supervisor: "Agry Alfiah, ST., MMSI.",
+    project: { title: "Evaluation CAT", slug: "evaluation-cat" },
+  },
+];

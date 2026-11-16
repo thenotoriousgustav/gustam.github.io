@@ -4,6 +4,7 @@ import { AI_TOOLS, TOOLS } from '@/data/profile'
 import GithubActivity from '@/components/work/github-activity'
 import AboutSection from '@/components/about-section'
 import Skills from '@/components/skill-list'
+import Research from '@/components/research'
 import { findDocs, findGlobal } from '@/lib/payload/server'
 import ContentUnavailable from '@/components/content-unavailable'
 import Link from 'next/link'
@@ -43,6 +44,7 @@ export default async function Home() {
     </section>
     <SelectedWork projects={projects as unknown as Parameters<typeof SelectedWork>[0]['projects']} title={home.selectedWorkTitle} />
     {about && <AboutSection about={about} />}
+    <Research />
     {about?.favorites?.length ? <Skills title={about.favoritesTitle} groups={about.favorites} /> : null}
     <Tools id="tools" title="Tools I use" items={TOOLS} />
     <Tools id="ai" title="AI I use" items={AI_TOOLS} />
