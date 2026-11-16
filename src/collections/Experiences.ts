@@ -9,6 +9,7 @@ export const Experiences: CollectionConfig = {
     { name: 'startDate', type: 'date', required: true, admin: { date: { pickerAppearance: 'monthOnly', displayFormat: 'MM.yyyy' }, description: 'The site lists experiences newest start date first.' } },
     { name: 'endDate', type: 'date', admin: { date: { pickerAppearance: 'monthOnly', displayFormat: 'MM.yyyy' }, description: 'Leave empty while you still work here (shown as Present).' } },
     { name: 'description', type: 'richText', required: true },
+    { name: 'projects', type: 'relationship', relationTo: 'projects', hasMany: true, admin: { description: 'Projects built in this role, linked under it on the home page.' } },
     { name: 'externalURL', type: 'text', validate: (value: unknown) => value == null || value === '' || (typeof value === 'string' && /^https?:\/\//i.test(value)) || 'Use an http or https URL' },
   ],
 }

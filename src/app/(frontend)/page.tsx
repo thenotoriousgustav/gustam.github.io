@@ -5,10 +5,11 @@ import GithubActivity from '@/components/work/github-activity'
 import AboutSection from '@/components/about-section'
 import Skills from '@/components/skill-list'
 import Research from '@/components/research'
+import Experience, { CV_URL } from '@/components/experience'
 import { findDocs, findGlobal } from '@/lib/payload/server'
 import ContentUnavailable from '@/components/content-unavailable'
 import Link from 'next/link'
-import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUp, ArrowUpRight, Download } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { shell, textLink } from '@/lib/styles'
 
@@ -38,11 +39,15 @@ export default async function Home() {
         {previous.length > 0 && <div className="lg:col-span-7">
           <p className={label}>Previously</p>
           <p className="max-w-[64ch]">{previous.map((item) => `${role(item)} @ ${company(item)}`).join(', ')}, and more.</p>
-          <Link className={cn(textLink, 'mt-1 gap-1.5')} href="#about">More about me <ArrowDown size={18} aria-hidden="true" /></Link>
+          <p className="mt-1 flex flex-wrap gap-x-6">
+            <Link className={cn(textLink, 'gap-1.5')} href="#experience">Experience <ArrowDown size={18} aria-hidden="true" /></Link>
+            <a className={cn(textLink, 'gap-1.5')} href={CV_URL} download>Download CV <Download size={18} aria-hidden="true" /></a>
+          </p>
         </div>}
       </div>
     </section>
     <SelectedWork projects={projects as unknown as Parameters<typeof SelectedWork>[0]['projects']} title={home.selectedWorkTitle} limit={8} />
+    {experiences.length > 0 && <Experience roles={experiences} />}
     {about && <AboutSection about={about} />}
     <Research />
     {about?.favorites?.length ? <Skills title={about.favoritesTitle} groups={about.favorites} /> : null}

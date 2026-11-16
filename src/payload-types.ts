@@ -268,6 +268,10 @@ export interface Experience {
     };
     [k: string]: unknown;
   };
+  /**
+   * Projects built in this role, linked under it on the home page.
+   */
+  projects?: (number | Project)[] | null;
   externalURL?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -493,6 +497,7 @@ export interface ExperiencesSelect<T extends boolean = true> {
   startDate?: T;
   endDate?: T;
   description?: T;
+  projects?: T;
   externalURL?: T;
   updatedAt?: T;
   createdAt?: T;
