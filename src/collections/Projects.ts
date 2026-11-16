@@ -5,8 +5,8 @@ const safeURL = (value: string | null | undefined) => !value || /^https?:\/\//i.
 export const Projects: CollectionConfig = {
   slug: 'projects',
   access: { read: () => true, create: ({ req }) => Boolean(req.user), update: ({ req }) => Boolean(req.user), delete: ({ req }) => Boolean(req.user) },
-  admin: { useAsTitle: 'title', defaultColumns: ['title', 'slug', 'date'], description: 'Project URLs are permanent once created. The newest project is shown first.' },
-  defaultSort: '-createdAt',
+  admin: { useAsTitle: 'title', defaultColumns: ['title', 'slug', 'date'], description: 'Project URLs are permanent once created. The site lists projects by Date, newest first; projects without a date come first.' },
+  defaultSort: '-date',
   hooks: { beforeChange: [async ({ data, req }) => {
     for (const screenshot of data.screenshots || []) {
       const mediaId = typeof screenshot.media === 'object' ? screenshot.media.id : screenshot.media

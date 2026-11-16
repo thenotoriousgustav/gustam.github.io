@@ -21,10 +21,14 @@ export function findDocs(collection: 'gallery-items'): Promise<GalleryItem[] | n
 export async function findDocs(collection: 'projects' | 'experiences' | 'gallery-items') {
   try {
     const payload = await client()
-    // Newest first: gallery and projects by when they were added, experiences by start date.
+    // Newest first: gallery by when it was added, experiences by start date, projects by date (below).
     const sort = collection === 'experiences' ? ['-startDate', '-id'] : ['-createdAt', '-id']
     const result = await payload.find({ collection, depth: 2, pagination: false, sort, overrideAccess: false })
-    return result.docs
+    if (collection !== 'projects') return result.docs
+    // Projects by their own date, newest first. Undated ones are current work, so they lead;
+    // the query's newest-added order breaks ties.
+    const time = (doc: { date?: string | null }) => doc.date ? Date.parse(doc.date) : Infinity
+    return [...(result.docs as Project[])].sort((a, b) => time(a) === time(b) ? 0 : time(b) > time(a) ? 1 : -1)
   } catch (error) {
     console.error(`Portfolio content request failed (${collection})`, error)
     return null
